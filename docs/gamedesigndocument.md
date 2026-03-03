@@ -11,7 +11,7 @@
 *Beispiel: Ein 2D-Platformer, bei dem der Spieler die Schwerkraft alle 10 Sekunden umkehren muss, um aus einem sinkenden Turm zu entkommen.*
 
 **Antwort:**
-Man spielt in einem 3d third person game als ein Katzen Character und wird in einem Wellen - Gameplayloop von Gegnern angegriffen und kann immer nach jeder Welle (wenn man sie überlebt) upgrades freischalten und weiterspielen.
+Man spielt in einem third person game als ein Katzen Character und wird in einem Wellen - Gameplayloop von Gegnern angegriffen und kann immer nach jeder Welle (wenn man sie überlebt) upgrades freischalten und weiterspielen.
 
 ## 2. Core Gameplay Loop
 > Was macht der Spieler Sekunde für Sekunde? (Beschreibt die Schleife)
@@ -38,7 +38,7 @@ Dies ist der wichtigste Teil. Was MUSS zur Deadline funktionieren? Alles hier Au
 | Aktion | Taste / Input | Effekt im Spiel |
 | :--- | :--- | :--- |
 | Bewegung | WASD | Spieler bewegt sich horizontal |
-| Angriff | Auto Target | Gegner werden automatisch angegriffen wenn man nahe genug zu ihnen ist |
+| Angriff | Mouse Click | Spieler schießt seine Waffe |
 
 ## 5. Assets & Technik
 *   **Grafikstil:** Low Poly
