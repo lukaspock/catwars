@@ -27,12 +27,12 @@ Dies ist der wichtigste Teil. Was MUSS zur Deadline funktionieren? Alles hier Au
 **Die 3 Pflicht-Features (Must-Haves):**
 1. [ ] Wave Based System
 2. [ ] Generieren von Gegnern
-3. [ ] Shop based System mit Upgrades
+3. [ ] Soundeffekte
 
 **Die "Nice-to-Haves" (Nur wenn Zeit bleibt!):**
 *   [ ] verschiedene Waffen und Items
 *   [ ] verschiedene Start Charaktere
-*   [ ] Soundeffekte
+*   [ ] Shop based System mit Upgrades
 
 ## 4. Steuerung & Mechanik
 | Aktion | Taste / Input | Effekt im Spiel |
