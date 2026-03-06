@@ -14,6 +14,10 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Erste Szene in Unity angelegt.
 *   Recherche zu 2D Physics.
 
+**Erledigt von Lukas:**
+*   Enemy Model Prototype erstellt
+*   Hero Model Prototyp erstellt
+
 **Probleme / Blocker:**
 *   Git Repository, Push, Pull
 
