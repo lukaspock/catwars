@@ -25,8 +25,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-            _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
-            isOnGround = false;
+            Jump();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -46,6 +45,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _rb.MovePosition(transform.position + transform.forward * vInput * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation * Quaternion.Euler(Vector3.up * hInput * Time.fixedDeltaTime));
+    }
+
+    void Jump()
+    {
+        _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+        isOnGround = false;
     }
 
     void OnCollisionEnter(Collision collision)
