@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour
     private Transform target;
     void Start()
     {
-        target = GameObject.Find("Head").transform;
+        target = GameObject.Find("Player").transform;
     }
 
     void LateUpdate()
