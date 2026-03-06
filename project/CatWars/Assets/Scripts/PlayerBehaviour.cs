@@ -7,7 +7,9 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody _rb;
     public float jumpVelocity = 5f;
     public bool isOnGround = true;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
+    private float timer;
+    private Weapon weapon;
     //public float attackSpeed = 1f;
     //private float startDelay = 2f;
 
@@ -16,10 +18,13 @@ public class PlayerBehaviour : MonoBehaviour
         Application.targetFrameRate = 60;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
+        weapon = GetComponentInChildren<Weapon>();
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
     }
     void Update()
     {
+        timer -= Time.deltaTime;
+
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
@@ -28,17 +33,17 @@ public class PlayerBehaviour : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && timer <= 0)
         {
-            FireMissile();
+            weapon.shoot();
+            timer = weapon.getReload();
         }
 
-    }
+        if (timer >= 0)
+        {
+            Debug.Log(Mathf.Round(timer*100)/100);
+        }
 
-    void FireMissile()
-    {
-        Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up * 1.5f;
-        Instantiate(projectilePrefab, spawnPos, transform.rotation);
     }
 
     void FixedUpdate()
@@ -55,7 +60,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+       if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+
     }
 
 }

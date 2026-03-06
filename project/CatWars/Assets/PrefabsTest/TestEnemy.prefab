@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBound: 50
-  lowerBound: 0
+  lowerBound: -50
 --- !u!114 &-5924001352552339547
 MonoBehaviour:
   m_ObjectHideFlags: 0
