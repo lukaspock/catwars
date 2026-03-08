@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flySpeed: 20
   missileNumber: 12
-  coneAngle: 45
+  coneAngle: 30
   reloadTime: 0.5
   projectilePrefab: {fileID: 3674471702279195730, guid: 80c8ed4286f4da54ab0c8c00f0d20bf6, type: 3}
   waves: 1

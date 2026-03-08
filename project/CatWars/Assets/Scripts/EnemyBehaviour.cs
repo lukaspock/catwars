@@ -5,13 +5,15 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public float damage = 1;
     public float attackSpeed = 1;
-    public float hp = 1;
+    private float currentHp;
     public float timer = 0;
     public bool isAttacking = false;
+    public float maxHP = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        currentHp = maxHP;
+        ChangeColor(Color.green);
     }
 
     // Update is called once per frame
@@ -32,20 +34,46 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !isAttacking)
         {
-            isAttacking = true;
-            timer = attackSpeed;
-            other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);
+            playerCollision(other);
         }
 
         if (other.gameObject.CompareTag("Missile"))
         {
-            hp -= other.gameObject.GetComponent<MissileDamage>().getDamage();
+            missileCollision(other);
+        }
+    }
 
-            Destroy(other.gameObject);
+    public void playerCollision(Collision other)
+    {
+        isAttacking = true;
+        timer = attackSpeed;
+        other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);
+    }
 
-            if (hp <= 0) {
-                Destroy(gameObject);
-            }
+    public void missileCollision(Collision other)
+    {
+        currentHp -= other.gameObject.GetComponent<MissileDamage>().getDamage();
+
+        Destroy(other.gameObject);
+
+        if (currentHp <= maxHP / 2)
+        {
+            ChangeColor(Color.red);
+        }
+
+        if (currentHp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void ChangeColor(Color color)
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer rend in renderers)
+        {
+            rend.material.color = color;
         }
     }
 
