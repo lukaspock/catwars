@@ -9,6 +9,8 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Erledigt von Gregor:**
 *   Player Controller Prototyp erstellt
+*   Erste Waffen hinzugefügt
+*   Playertracking der Gegner erstellt
 
 **Erledigt von [Name Schüler B]:**
 *   Erste Szene in Unity angelegt.

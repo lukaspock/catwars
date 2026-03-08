@@ -297,9 +297,8 @@ MonoBehaviour:
   rotateSpeed: 75
   jumpVelocity: 5
   isOnGround: 1
-  projectilePrefab: {fileID: 3674471702279195730, guid: b16693fc532e7614fb4486f29f394fcc, type: 3}
-  timer: 0
-  weapon: {fileID: 0}
+  maxHp: 100
+  currentHp: 0
 --- !u!1 &8836781251171960611
 GameObject:
   m_ObjectHideFlags: 0

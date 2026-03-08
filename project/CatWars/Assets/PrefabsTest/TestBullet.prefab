@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1239201202671302226}
   - component: {fileID: 5801239111589884562}
   - component: {fileID: -330627193577745042}
+  - component: {fileID: -7233375906849655606}
   m_Layer: 8
   m_Name: TestBullet
   m_TagString: Missile
@@ -89,6 +90,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7233375906849655606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674471702279195730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04845db196d2f949bebaa83a08980ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &9009956071420406176
 GameObject:
   m_ObjectHideFlags: 0

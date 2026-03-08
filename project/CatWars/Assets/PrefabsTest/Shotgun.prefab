@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6205276550491035137}
-  - component: {fileID: 915553136490827220}
+  - component: {fileID: 7600807232939898813}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -143,7 +143,7 @@ Transform:
   - {fileID: 7922497040384578578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &915553136490827220
+--- !u!114 &7600807232939898813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7513451779559718968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd244f49e65c2a4e9a909f74ea3ad1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c21d65a44f4bb3468181d0f6d08d5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flySpeed: 20
+  missileNumber: 12
+  coneAngle: 45
+  reloadTime: 0.5
   projectilePrefab: {fileID: 3674471702279195730, guid: 80c8ed4286f4da54ab0c8c00f0d20bf6, type: 3}
+  waves: 1
+  waveSpeed: 1

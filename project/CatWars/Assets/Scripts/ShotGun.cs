@@ -6,12 +6,11 @@ public class ShotGun : Weapon
     void Start()
     {
         flySpeed = 20f;
-        missileNumber = 20;
-        waves = 5;
+        missileNumber = 12;
+        waves = 1;
         coneAngle = 45;
-        reloadTime = 2f;
+        reloadTime = 1f;
         waveSpeed = 0.1f;
-
-}
+    }
 
 }

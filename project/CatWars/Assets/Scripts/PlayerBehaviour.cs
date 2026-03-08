@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     //public GameObject projectilePrefab;
     private float timer;
     private Weapon weapon;
+    public float maxHp = 1;
+    public float currentHp;
     //public float attackSpeed = 1f;
     //private float startDelay = 2f;
 
@@ -19,6 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
         weapon = GetComponentInChildren<Weapon>();
+        currentHp = maxHp;
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
     }
     void Update()
@@ -41,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (timer >= 0)
         {
-            Debug.Log(Mathf.Round(timer*100)/100);
+            //Debug.Log(Mathf.Round(timer*100)/100);
         }
 
     }
@@ -65,6 +69,15 @@ public class PlayerBehaviour : MonoBehaviour
             isOnGround = true;
         }
 
+    }
+
+    public void takeDamage(float damage)
+    {
+        this.currentHp -= damage;
+        if (currentHp <= 0)
+        {
+            Debug.Log("GameOver");
+        }
     }
 
 }

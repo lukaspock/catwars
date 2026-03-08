@@ -4,9 +4,10 @@ public class CameraScript : MonoBehaviour
 {
     public Vector3 camOffset = new Vector3(0f, 1.2f, -2.6f);
     private Transform target;
+    public string targetString = "Player/Head";
     void Start()
     {
-        target = GameObject.Find("Head").transform;
+        target = GameObject.Find(targetString).transform;
     }
 
     void LateUpdate()

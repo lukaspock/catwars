@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    protected float flySpeed;
-    protected float missileNumber;
-    protected float coneAngle;
-    protected float reloadTime;
+    public float flySpeed;
+    public float missileNumber;
+    public float coneAngle; // how far the missiles are spread
+    public float reloadTime; // time it takes until mousedown triggers another shot
     public GameObject projectilePrefab;
-    private float missileAngle;
-    protected float waves;
-    protected float waveSpeed;
+    private float missileAngle; // angle for each missile
+    public float waves; // number of waves
+    public float waveSpeed; // how long it takes for each wave to be shot
     private float timer = 0;
     private bool isShooting = false;
-    private int currentWave = 0;
-    protected float startAngle;
+    private int currentWave = 0; // wave counter (more than one wave per shot possible)
+    protected float startAngle; // the angle in relation to the player where the first missile spawns
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
