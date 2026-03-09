@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Spawnmanager : MonoBehaviour
@@ -10,10 +11,20 @@ public class Spawnmanager : MonoBehaviour
     public float noe = 0;
     public float startNoe = 1;
     public float waveCounter = 0;
+    private bool waitingForInput = false;
 
     void Start()
     {
-        InvokeRepeating("SpawnRandomEnemy", startDelay, 1 / spawnInterval);
+        startWave();
+    }
+
+    private void Update()
+    {
+        if (waitingForInput && Input.GetKeyDown(KeyCode.Return)) {
+            waitingForInput = false;
+            increaseDifficulty();
+            startWave();
+        } 
     }
 
 
@@ -35,18 +46,23 @@ public class Spawnmanager : MonoBehaviour
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                Debug.Log("Wave cleared");
-                spawnCounter = 0;
-                spawnInterval *= 1.2f;
-                waveCounter++;
-                startNoe *= 1.2f;
-                Start();
-
-            }
-            
+                Debug.Log("Wave cleared. Press Enter to start next wave");
+                waitingForInput = true;
+            }     
         }
+    }
 
+    public void startWave()
+    {
+        InvokeRepeating("SpawnRandomEnemy", startDelay, 1 / spawnInterval);
+    }
 
+    public void increaseDifficulty()
+    {   
+        spawnCounter = 0;
+        spawnInterval *= 1.2f;
+        waveCounter++;
+        startNoe *= 1.2f;
     }
 }
 

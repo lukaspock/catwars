@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool isOnGround = true;
     //public GameObject projectilePrefab;
     private float timer;
-    private Weapon weapon;
+    public Weapon weapon;
     public float maxHp = 1;
     public float currentHp;
     //public float attackSpeed = 1f;

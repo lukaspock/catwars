@@ -6,27 +6,36 @@ public class EnemyBehaviour : MonoBehaviour
     public float damage = 1;
     public float attackSpeed = 1;
     private float currentHp;
-    public float timer = 0;
+    public float meleeTimer = 0;
+    public float weaponTimer = 0;
     public bool isAttacking = false;
     public float maxHP = 1;
+    public Weapon weapon = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHp = maxHP;
-        ChangeColor(Color.green);
     }
 
     // Update is called once per frame
     void Update()
     {
+        weaponTimer -= Time.deltaTime;
         if (isAttacking)
         {
-            timer -= Time.deltaTime;
+            meleeTimer -= Time.deltaTime;
         }
 
-        if (timer <= 0)
+        if (meleeTimer <= 0)
         {
             isAttacking = false;
+        }
+
+        if (weapon != null && weaponTimer <= 0)
+        {
+            Debug.Log("Shot" + weaponTimer);
+            weapon.shoot();
+            weaponTimer = weapon.getReload();
         }
     }
 
@@ -46,20 +55,17 @@ public class EnemyBehaviour : MonoBehaviour
     public void playerCollision(Collision other)
     {
         isAttacking = true;
-        timer = attackSpeed;
+        meleeTimer = attackSpeed;
         other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);
     }
 
     public void missileCollision(Collision other)
     {
-        currentHp -= other.gameObject.GetComponent<MissileDamage>().getDamage();
+        
+        float missileDamage = other.gameObject.GetComponent<MissileDamage>().getDamage();
+        takeDamage(missileDamage);
 
         Destroy(other.gameObject);
-
-        if (currentHp <= maxHP / 2)
-        {
-            ChangeColor(Color.red);
-        }
 
         if (currentHp <= 0)
         {
@@ -77,12 +83,17 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    public void takeDamage(float damage)
+    {
+        currentHp -= damage;
+    }
+
     public float getDamage()
     {
         return damage;
     }
 
-    public float getTimer() { 
-        return timer; 
+    public float getMeleeTimer() { 
+        return meleeTimer; 
     }
 }

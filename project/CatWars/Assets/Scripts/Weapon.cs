@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     private float missileAngle; // angle for each missile
     public float waves; // number of waves
     public float waveSpeed; // how long it takes for each wave to be shot
-    private float timer = 0;
+    private float waveTimer = 0;
     private bool isShooting = false;
     private int currentWave = 0; // wave counter (more than one wave per shot possible)
     protected float startAngle; // the angle in relation to the player where the first missile spawns
@@ -25,8 +25,8 @@ public class Weapon : MonoBehaviour
     {
         if (isShooting)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            waveTimer -= Time.deltaTime;
+            if (waveTimer <= 0)
             {
                 fireWave();
                 currentWave++;
@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
                 }
                 else
                 {
-                    timer = waveSpeed;
+                    waveTimer = waveSpeed;
                 }
             }
  
@@ -52,7 +52,7 @@ public class Weapon : MonoBehaviour
         missileAngle = coneAngle / missileNumber;
         startAngle = -(coneAngle / 2) + (missileAngle / 2);
         currentWave = 0;
-        timer = 0;
+        waveTimer = 0;
     }
 
     public void fireWave()

@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b07821d77f57544cb7e9cffce316d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 9
 --- !u!114 &4827215798504687259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,9 +338,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   attackSpeed: 1
-  timer: 0
+  meleeTimer: 0
+  weaponTimer: 0
   isAttacking: 0
   maxHP: 15
+  weapon: {fileID: 7540842028757557220, guid: 09a2cf1043a023b429ceb2dec0733844, type: 3}
 --- !u!1 &8143333527203594514
 GameObject:
   m_ObjectHideFlags: 0

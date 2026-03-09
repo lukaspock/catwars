@@ -16,6 +16,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Gegner HP tracking hinzugefügt
 *   Player und Gegner können schaden austeilen oder kassieren
 *   Prototyp für Wellenbasiertes Spawnsystem
+*   Prototyp für Gegner mit Waffen
 
 **Erledigt von [Name Schüler B]:**
 *   Erste Szene in Unity angelegt.
