@@ -9,6 +9,14 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Erledigt von Gregor:**
 *   Player Controller Prototyp erstellt
+*   Erste Waffen hinzugefügt
+*   Playertracking der Gegner erstellt
+*   Waffen Funktionsweise verändert und Pistole hinzugefügt
+*   Player HP tracking hinzugefügt
+*   Gegner HP tracking hinzugefügt
+*   Player und Gegner können schaden austeilen oder kassieren
+*   Prototyp für Wellenbasiertes Spawnsystem
+*   Prototyp für Gegner mit Waffen
 
 **Erledigt von Justin:**
 *   Erste Szene in Unity angelegt. (mit Map)
@@ -29,6 +37,8 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   [ ] Waffen modelle starten
 *   [ ] Gegner und Spieler fertigstellen
 *   [ ] UI erstellen
+*   [ ] Controls verbessern
+*   [ ] Mehr unterschiedliche Waffen hinzufügen
 
 
 
