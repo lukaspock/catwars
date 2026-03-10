@@ -10,14 +10,36 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 **Erledigt von Gregor:**
 *   Player Controller Prototyp erstellt
 
-**Erledigt von [Name Schüler B]:**
-*   Erste Szene in Unity angelegt.
-*   Recherche zu 2D Physics.
+**Erledigt von Justin:**
+*   Erste Szene in Unity angelegt. (mit Map)
+
+**Erledigt von Lukas:**
+* Erste Character Modelle Gemacht
+* Simples Gegner Modell in Blender
+* Simples Spieler Modell in Blender angefangen
+
 
 **Probleme / Blocker:**
 *   Git Repository, Push, Pull
 
 ---
 
-## Woche 2 (Datum: ...)
-...
+## Woche 2 (Datum: 10.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen modelle starten
+*   [ ] Gegner und Spieler fertigstellen
+*   [ ] UI erstellen
+
+
+
+**Erledigt von Gregor:**
+*   
+
+**Erledigt von [Name Schüler B]:**
+*   
+
+**Erledigt von Lukas:**
+*   
+
+**Probleme / Blocker:**
+*   
