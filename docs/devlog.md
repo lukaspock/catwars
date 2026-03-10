@@ -20,6 +20,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Erledigt von Justin:**
 *   Erste Szene in Unity angelegt. (mit Map)
+*   Assets heruntergeladen für Mond Szene
 
 **Erledigt von Lukas:**
 * Erste Character Modelle Gemacht
@@ -45,8 +46,12 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 **Erledigt von Gregor:**
 *   
 
-**Erledigt von [Name Schüler B]:**
-*   
+**Erledigt von Justin:**
+*   UI Elemente erstellt
+*   Start, GameOver, WaveComplete UI erstellt
+*   HP Leiste erstellt
+
+
 
 **Erledigt von Lukas:**
 *   
