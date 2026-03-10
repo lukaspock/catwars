@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6205276550491035137}
   - component: {fileID: 7600807232939898813}
+  - component: {fileID: -5050046046606548954}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7513451779559718968}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c21d65a44f4bb3468181d0f6d08d5f2, type: 3}
   m_Name: 
@@ -160,5 +161,24 @@ MonoBehaviour:
   coneAngle: 30
   reloadTime: 0.5
   projectilePrefab: {fileID: 3674471702279195730, guid: 80c8ed4286f4da54ab0c8c00f0d20bf6, type: 3}
+  waves: 1
+  waveSpeed: 1
+--- !u!114 &-5050046046606548954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513451779559718968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd244f49e65c2a4e9a909f74ea3ad1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flySpeed: 20
+  missileNumber: 12
+  coneAngle: 10
+  reloadTime: 0.5
+  projectilePrefab: {fileID: 0}
   waves: 1
   waveSpeed: 1

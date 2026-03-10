@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     public float coneAngle; // how far the missiles are spread
     public float reloadTime; // time it takes until mousedown triggers another shot
     public GameObject projectilePrefab;
-    private float missileAngle; // angle for each missile
+    protected float missileAngle; // angle for each missile
     public float waves; // number of waves
     public float waveSpeed; // how long it takes for each wave to be shot
     private float waveTimer = 0;
@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour
         waveTimer = 0;
     }
 
-    public void fireWave()
+    public virtual void fireWave()
     {
         for (int i = 0; i < missileNumber; i++)
         {
