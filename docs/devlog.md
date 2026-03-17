@@ -16,7 +16,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Gegner HP tracking hinzugefügt
 *   Player und Gegner können schaden austeilen oder kassieren
 *   Prototyp für Wellenbasiertes Spawnsystem
-*   Prototyp für Gegner mit Waffen
+
 
 **Erledigt von Justin:**
 *   Erste Szene in Unity angelegt. (mit Map)
@@ -44,7 +44,9 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 
 **Erledigt von Gregor:**
-*   
+*   Prototyp für Gegner mit Waffen
+*   Shotgun verbessert
+*   Erste Versuche der Minigun Implementierung
 
 **Erledigt von Justin:**
 *   UI Elemente erstellt
@@ -54,7 +56,8 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 
 **Erledigt von Lukas:**
-*   
+*   Main Character Model Erstellt
+*   In Git gekämpft
 
 **Probleme / Blocker:**
-*   
+*   GIT
