@@ -28,6 +28,10 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 * Simples Spieler Modell in Blender angefangen
 
 
+**Erledigt von Lukas:**
+*   Enemy Model Prototype erstellt
+*   Hero Model Prototyp erstellt
+
 **Probleme / Blocker:**
 *   Git Repository, Push, Pull
 
