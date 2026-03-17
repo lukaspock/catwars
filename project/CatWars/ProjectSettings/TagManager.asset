@@ -6,16 +6,17 @@ TagManager:
   tags:
   - Enemy
   - Missile
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Ground
   - Water
   - UI
+  - Player
+  - Enemy
   - Missile
-  - 
-  - 
   - 
   - 
   - 

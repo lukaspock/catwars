@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -7,7 +8,11 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody _rb;
     public float jumpVelocity = 5f;
     public bool isOnGround = true;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
+    private float timer;
+    public Weapon weapon;
+    public float maxHp = 1;
+    public float currentHp;
     //public float attackSpeed = 1f;
     //private float startDelay = 2f;
 
@@ -16,30 +21,33 @@ public class PlayerBehaviour : MonoBehaviour
         Application.targetFrameRate = 60;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
+        weapon = GetComponentInChildren<Weapon>();
+        currentHp = maxHp;
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
     }
     void Update()
     {
+        timer -= Time.deltaTime;
+
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-            _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
-            isOnGround = false;
+            Jump();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && timer <= 0)
         {
-            FireMissile();
+            weapon.shoot();
+            timer = weapon.getReload();
         }
 
-    }
+        if (timer >= 0)
+        {
+            //Debug.Log(Mathf.Round(timer*100)/100);
+        }
 
-    void FireMissile()
-    {
-        Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up * 1.5f;
-        Instantiate(projectilePrefab, spawnPos, transform.rotation);
     }
 
     void FixedUpdate()
@@ -48,9 +56,28 @@ public class PlayerBehaviour : MonoBehaviour
         _rb.MoveRotation(_rb.rotation * Quaternion.Euler(Vector3.up * hInput * Time.fixedDeltaTime));
     }
 
+    void Jump()
+    {
+        _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+        isOnGround = false;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+       if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+
+    }
+
+    public void takeDamage(float damage)
+    {
+        this.currentHp -= damage;
+        if (currentHp <= 0)
+        {
+            Debug.Log("GameOver");
+        }
     }
 
 }

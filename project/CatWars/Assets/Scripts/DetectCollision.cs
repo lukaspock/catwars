@@ -16,7 +16,7 @@ public class DetectCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (gameObject.CompareTag("Enemy") && other.gameObject.CompareTag("Bullet"))
+        if (gameObject.CompareTag("Enemy") && other.gameObject.CompareTag("Missile"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
