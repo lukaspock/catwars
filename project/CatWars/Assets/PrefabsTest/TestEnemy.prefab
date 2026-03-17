@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: -9000739238757294161}
   - component: {fileID: -4604875889594984367}
   - component: {fileID: 4827215798504687259}
+  - component: {fileID: -5992732170382935838}
   m_Layer: 7
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -343,6 +344,29 @@ MonoBehaviour:
   isAttacking: 0
   maxHP: 15
   weapon: {fileID: 7540842028757557220, guid: 09a2cf1043a023b429ceb2dec0733844, type: 3}
+--- !u!136 &-5992732170382935838
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865200821432611665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3.0396419
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.50302863, z: 0}
 --- !u!1 &8143333527203594514
 GameObject:
   m_ObjectHideFlags: 0
