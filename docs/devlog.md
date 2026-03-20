@@ -65,3 +65,26 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Probleme / Blocker:**
 *   GIT
+
+## Woche 3 (Datum: 17.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen Modelle Fertigstellen
+*   [ ] UI erweitert
+
+
+**Erledigt von Gregor:**
+*      
+*   
+
+**Erledigt von Justin:**
+*   weitere UI Elemente erstellt
+*   Terrain für die Map erstellt
+
+
+**Erledigt von Lukas:**
+*   Shotgun Modell fertig
+*   Gun Modell fertig
+
+**Probleme / Blocker:**
+*   
+
