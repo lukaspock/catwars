@@ -4,12 +4,11 @@ public class RotateWithMouse : MonoBehaviour
 {
     public Transform playerHead;
 
-    [Header("Einstellungen")]
     public float sensitivity = 2f; //how fast the head turns
     public float minAngle = -60f; //how far the head turns
     public float maxAngle = 60f; //how far the head turns
 
-    private float currentXRotation = 0f; //
+    private float currentXRotation = 0f;
 
     void Start()
     {
@@ -19,7 +18,7 @@ public class RotateWithMouse : MonoBehaviour
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity; // 
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
 

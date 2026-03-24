@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
       propertyPath: m_LocalPosition.z
@@ -218,7 +218,7 @@ MonoBehaviour:
   meleeTimer: 0
   weaponTimer: 0
   isAttacking: 0
-  maxHP: 1
+  maxHP: 20
   weapon: {fileID: 0}
 --- !u!65 &1709204178295131999
 BoxCollider:
