@@ -2,41 +2,28 @@
 
 Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintragen, was er/sie getan hat. Das ist die Basis für die individuelle Benotung.
 
-## Woche 1 (Datum: 03.03.2026)
+## Woche 1 (Datum: DD.MM.YYYY)
 **Ziele dieser Woche:**
 *   [x] Repository aufgesetzt
-*   [x] Player Controller Prototyp
+*   [ ] Player Controller Prototyp
 
-**Erledigt von Gregor:**
-*   Player Controller Prototyp erstellt
-*   Erste Waffen hinzugefügt
-*   Playertracking der Gegner erstellt
-*   Waffen Funktionsweise verändert und Pistole hinzugefügt
-*   Player HP tracking hinzugefügt
-*   Gegner HP tracking hinzugefügt
-*   Player und Gegner können schaden austeilen oder kassieren
-*   Prototyp für Wellenbasiertes Spawnsystem
+**Erledigt von [Name Schüler A]:**
+*   Git Repo erstellt und .gitignore eingerichtet.
+*   GDD Vorlage ausgefüllt.
 
-
-**Erledigt von Justin:**
-*   Erste Szene in Unity angelegt. (mit Map)
-*   Assets heruntergeladen für Mond Szene
-
-**Erledigt von Lukas:**
-* Erste Character Modelle Gemacht
-* Simples Gegner Modell in Blender
-* Simples Spieler Modell in Blender angefangen
-
-
-**Erledigt von Lukas:**
-*   Enemy Model Prototype erstellt
-*   Hero Model Prototyp erstellt
+**Erledigt von [Name Schüler B]:**
+*   Erste Szene in Unity angelegt.
+*   Recherche zu 2D Physics.
 
 **Probleme / Blocker:**
-*   Git Repository, Push, Pull
+*   Wir wissen noch nicht, wie man Kollisionen sauber abfragt.
 
 ---
 
+<<<<<<< Updated upstream
+## Woche 2 (Datum: ...)
+...
+=======
 ## Woche 2 (Datum: 10.03.2026)
 **Ziele dieser Woche:**
 *   [ ] Waffen modelle starten
@@ -73,7 +60,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 
 **Erledigt von Gregor:**
-*      
+*   Kamera auf und ab Bewegung
 *   
 
 **Erledigt von Justin:**
@@ -86,5 +73,32 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Gun Modell fertig
 
 **Probleme / Blocker:**
+*   keine
+
+
+
+## Woche 4 (Datum: 24.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen erweitern
+*   [ ] Map erweitern
+*   [ ] Spieler/Enemys hinzufügen
+*   [ ] Blender-Models mit Scripts verbinden
+
+
+**Erledigt von Gregor:**
+*   Models aus Blender mit Scripts verbinden/benutzen
 *   
 
+**Erledigt von Justin:**
+*   Map mit Brush und Steinen erweitert
+*   Planeten (Asset) hinzugefügt
+*   Implementierung von Kamera und Player
+
+
+**Erledigt von Lukas:**
+*   neue Gun Modele und Bullets
+
+
+**Probleme / Blocker:**
+*   keine
+>>>>>>> Stashed changes
