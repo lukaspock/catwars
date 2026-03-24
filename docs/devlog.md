@@ -20,5 +20,85 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 ---
 
+<<<<<<< Updated upstream
 ## Woche 2 (Datum: ...)
 ...
+=======
+## Woche 2 (Datum: 10.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen modelle starten
+*   [ ] Gegner und Spieler fertigstellen
+*   [ ] UI erstellen
+*   [ ] Controls verbessern
+*   [ ] Mehr unterschiedliche Waffen hinzufügen
+
+
+
+**Erledigt von Gregor:**
+*   Prototyp für Gegner mit Waffen
+*   Shotgun verbessert
+*   Erste Versuche der Minigun Implementierung
+
+**Erledigt von Justin:**
+*   UI Elemente erstellt
+*   Start, GameOver, WaveComplete UI erstellt
+*   HP Leiste erstellt
+
+
+
+**Erledigt von Lukas:**
+*   Main Character Model Erstellt
+*   In Git gekämpft
+
+**Probleme / Blocker:**
+*   GIT
+
+## Woche 3 (Datum: 17.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen Modelle Fertigstellen
+*   [ ] UI erweitert
+
+
+**Erledigt von Gregor:**
+*   Kamera auf und ab Bewegung
+*   
+
+**Erledigt von Justin:**
+*   weitere UI Elemente erstellt
+*   Terrain für die Map erstellt
+
+
+**Erledigt von Lukas:**
+*   Shotgun Modell fertig
+*   Gun Modell fertig
+
+**Probleme / Blocker:**
+*   keine
+
+
+
+## Woche 4 (Datum: 24.03.2026)
+**Ziele dieser Woche:**
+*   [ ] Waffen erweitern
+*   [ ] Map erweitern
+*   [ ] Spieler/Enemys hinzufügen
+*   [ ] Blender-Models mit Scripts verbinden
+
+
+**Erledigt von Gregor:**
+*   Models aus Blender mit Scripts verbinden/benutzen
+*   
+
+**Erledigt von Justin:**
+*   Map mit Brush und Steinen erweitert
+*   Planeten (Asset) hinzugefügt
+*   Implementierung von Kamera und Player
+
+
+**Erledigt von Lukas:**
+*   neue Gun Modele und Bullets
+
+
+**Probleme / Blocker:**
+*   keine
+>>>>>>> Stashed changes
