@@ -87,10 +87,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-<<<<<<< Updated upstream
-=======
-    - PixelSnap: 0
->>>>>>> Stashed changes
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
@@ -105,10 +101,6 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-<<<<<<< Updated upstream
-=======
-    - _EnableExternalAlpha: 0
->>>>>>> Stashed changes
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
