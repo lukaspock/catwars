@@ -113,17 +113,18 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 
 **Erledigt von Gregor:**
-*    
+*    UI mit Scripts verknüpfen (angefangen, Scripts schreiben)
 
 
 **Erledigt von Justin:**
-*    
+*    Modelle mit Skripten verknüpft
+*    SpawnManager versucht einzufügen
 
 
 **Erledigt von Lukas:**
-*   
+*   Mehr Enemy Modelle in Blender erstellt
 
 
 **Probleme / Blocker:**
-*   
+*   SpawnManager (Spawnflächen)
 >>>>>>> Stashed changes
