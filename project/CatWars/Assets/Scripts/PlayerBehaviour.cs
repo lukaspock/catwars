@@ -11,7 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     //public GameObject projectilePrefab;
     private float timer;
     public Weapon weapon;
-    public float maxHp = 1;
+    public float maxHp = 100;
     public float currentHp;
     //public float attackSpeed = 1f;
     //private float startDelay = 2f;
@@ -66,6 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
        if (collision.gameObject.CompareTag("Ground"))
         {
+            Debug.Log("Landed");
             isOnGround = true;
         }
 
