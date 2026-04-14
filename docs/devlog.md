@@ -107,8 +107,8 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Ziele dieser Woche:**
 *   [ ] UI mit Scripts verknüpfen
-*   [ ] 
-*   [ ] 
+*   [ ] Soundefekte heraussuchen
+*   [ ] neue modelle in Blender hinzufügen
 *   [ ] 
 
 
