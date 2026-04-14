@@ -101,4 +101,29 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Probleme / Blocker:**
 *   keine
+
+
+## Woche 5 (Datum: 14.04.2026)
+
+**Ziele dieser Woche:**
+*   [ ] UI mit Scripts verknüpfen
+*   [ ] 
+*   [ ] 
+*   [ ] 
+
+
+**Erledigt von Gregor:**
+*    
+
+
+**Erledigt von Justin:**
+*    
+
+
+**Erledigt von Lukas:**
+*   
+
+
+**Probleme / Blocker:**
+*   
 >>>>>>> Stashed changes
