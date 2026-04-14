@@ -4,7 +4,7 @@ using UnityEngine;
 public class Spawnmanager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    private float spawnRange = 30;
+    public float spawnRange = 30;
     private float startDelay = 2;
     public float spawnInterval = 1f;
     public float spawnCounter = 0;
@@ -27,16 +27,17 @@ public class Spawnmanager : MonoBehaviour
         } 
     }
 
+    public void StartSpawning()
+    {
+        Start();
+    }
 
-    void SpawnRandomEnemy()
+
+    private void SpawnRandomEnemy()
     {
         if (spawnCounter < startNoe)
         {
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
-            //Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation); // fixed rotation
-
-            //float randomY = Random.Range(0f, 360f);
-            //Quaternion randomRotation = Quaternion.Euler(0f, randomY, 0f); // random rotation around the Y-axis
 
             Vector3 spawnPoint = getRandomSpawnPoint();
 
@@ -71,7 +72,7 @@ public class Spawnmanager : MonoBehaviour
         Vector3 spawnPos;
         do
         {
-          spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 1, Random.Range(-spawnRange, spawnRange));
+          spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 35, Random.Range(-spawnRange, spawnRange));
         } while (Vector3.Distance(spawnPos, Vector3.zero) < 20);
 
         return spawnPos;
