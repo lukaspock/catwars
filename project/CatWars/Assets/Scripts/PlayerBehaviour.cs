@@ -77,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
         this.currentHp -= damage;
         if (currentHp <= 0)
         {
-            Debug.Log("Game Over");
+            UIManager.instance.ShowGameOver();
         }
     }
 
