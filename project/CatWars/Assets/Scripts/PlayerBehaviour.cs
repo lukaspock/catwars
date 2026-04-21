@@ -21,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
         Application.targetFrameRate = 60;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
+        transform.rotation = Quaternion.Euler(0, 90, 0);
         weapon = GetComponentInChildren<Weapon>();
         currentHp = maxHp;
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
@@ -29,7 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        hInput = Input.GetAxis("Horizontal") * rotateSpeed;
+        hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
@@ -52,8 +53,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rb.MovePosition(transform.position + transform.forward * vInput * Time.fixedDeltaTime);
-        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(Vector3.up * hInput * Time.fixedDeltaTime));
+        Vector3 move = transform.forward * vInput + transform.right * hInput;
+        _rb.MovePosition(transform.position + move * Time.fixedDeltaTime);
     }
 
     void Jump()
