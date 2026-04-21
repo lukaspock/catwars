@@ -36,7 +36,7 @@ public class Spawnmanager : MonoBehaviour
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                UIManager.instance.ShowWaveComplete();
+                Debug.Log("Wave Complete");
             }
         }
     }
