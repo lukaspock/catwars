@@ -21,7 +21,6 @@ public class PlayerBehaviour : MonoBehaviour
         Application.targetFrameRate = 60;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
-        transform.rotation = Quaternion.Euler(0, 90, 0);
         weapon = GetComponentInChildren<Weapon>();
         currentHp = maxHp;
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
@@ -78,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
         this.currentHp -= damage;
         if (currentHp <= 0)
         {
-            Debug.Log("GameOver");
+            UIManager.instance.ShowGameOver();
         }
     }
 
