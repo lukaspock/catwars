@@ -60,10 +60,10 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < missileNumber; i++)
         {
             float fireAngle = startAngle + (missileAngle * i);
-            //Debug.Log(transform.position.y);
             Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up;
             Quaternion rotation = Quaternion.Euler(0, fireAngle + transform.eulerAngles.y, transform.eulerAngles.z);
-            Instantiate(projectilePrefab, spawnPos, rotation);
+            GameObject projectile = Instantiate(projectilePrefab, spawnPos, rotation);
+            projectile.GetComponent<MoveForward>().speed = flySpeed;
         }
     }
 

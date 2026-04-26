@@ -11,7 +11,8 @@ public class ShotGun : Weapon
             //Debug.Log(transform.position.y);
             Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up;
             Quaternion rotation = Quaternion.Euler(0, fireAngle, 0);
-            Instantiate(projectilePrefab, spawnPos, getRandomRotation());
+            GameObject projectile = Instantiate(projectilePrefab, spawnPos, getRandomRotation());
+            projectile.GetComponent<MoveForward>().speed = flySpeed;
         }
     }
 

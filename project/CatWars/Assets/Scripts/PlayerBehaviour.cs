@@ -29,7 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        hInput = Input.GetAxis("Horizontal") * rotateSpeed;
+        hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
@@ -52,8 +52,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rb.MovePosition(transform.position + transform.forward * vInput * Time.fixedDeltaTime);
-        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(Vector3.up * hInput * Time.fixedDeltaTime));
+        Vector3 move = transform.forward * vInput + transform.right * hInput;
+        _rb.MovePosition(transform.position + move * Time.fixedDeltaTime);
     }
 
     void Jump()
@@ -77,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
         this.currentHp -= damage;
         if (currentHp <= 0)
         {
-            Debug.Log("GameOver");
+            UIManager.instance.ShowGameOver();
         }
     }
 

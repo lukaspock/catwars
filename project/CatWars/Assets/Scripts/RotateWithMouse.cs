@@ -7,6 +7,7 @@ public class RotateWithMouse : MonoBehaviour
     public float sensitivity = 2f; //how fast the head turns
     public float minAngle = -60f; //how far the head turns
     public float maxAngle = 60f; //how far the head turns
+    public float modelYOffset = 0f;
 
     private float currentXRotation = 0f;
 
@@ -27,6 +28,6 @@ public class RotateWithMouse : MonoBehaviour
 
         currentXRotation -= mouseY; //head turns up and down
         currentXRotation = Mathf.Clamp(currentXRotation, minAngle, maxAngle);
-        playerHead.localRotation = Quaternion.Euler(currentXRotation, 0f, 0f);
+        playerHead.localRotation = Quaternion.Euler(currentXRotation, modelYOffset, 0f);
     }
 }

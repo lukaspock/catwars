@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57389e2c7bdead14699c0ce82996c472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBound: 1000
-  lowerBound: -1000
+  topBound: 50
+  lowerBound: -50
 --- !u!114 &-4604875889594984367
 MonoBehaviour:
   m_ObjectHideFlags: 0
