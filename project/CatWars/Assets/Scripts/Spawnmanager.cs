@@ -4,7 +4,7 @@ using UnityEngine;
 public class Spawnmanager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public float spawnRange = 20;
+    public float spawnRange = 30;
     private float startDelay = 2;
     public float spawnInterval = 1f;
     public float spawnCounter = 0;
@@ -12,6 +12,7 @@ public class Spawnmanager : MonoBehaviour
     public float startNoe = 1;
     public float waveCounter = 0;
     private bool waitingForInput = false;
+    public GameObject[] spawnPoints;
 
     void Start()
     {
@@ -20,11 +21,12 @@ public class Spawnmanager : MonoBehaviour
 
     private void Update()
     {
-        if (waitingForInput && Input.GetKeyDown(KeyCode.Return)) {
+        if (waitingForInput && Input.GetKeyDown(KeyCode.Return))
+        {
             waitingForInput = false;
             increaseDifficulty();
             startWave();
-        } 
+        }
     }
 
 
@@ -33,23 +35,21 @@ public class Spawnmanager : MonoBehaviour
         if (spawnCounter < startNoe)
         {
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
-            //Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation); // fixed rotation
-
-            //float randomY = Random.Range(0f, 360f);
-            //Quaternion randomRotation = Quaternion.Euler(0f, randomY, 0f); // random rotation around the Y-axis
+            //Vector3 spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 1, Random.Range(-spawnRange, spawnRange));
+            //Instantiate(enemyPrefabs[enemyIndex], spawnPos, /*randomRotation*/ transform.rotation);
 
             Vector3 spawnPoint = getRandomSpawnPoint();
-
-            Instantiate(enemyPrefabs[enemyIndex], spawnPoint, /*randomRotation*/ transform.rotation);
+            Instantiate(enemyPrefabs[enemyIndex], spawnPoint, transform.rotation);
             spawnCounter++;
-        } else
+        }
+        else
         {
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
                 Debug.Log("Wave cleared. Press Enter to start next wave");
                 waitingForInput = true;
-            }     
+            }
         }
     }
 
@@ -59,7 +59,7 @@ public class Spawnmanager : MonoBehaviour
     }
 
     public void increaseDifficulty()
-    {   
+    {
         spawnCounter = 0;
         spawnInterval *= 1.2f;
         waveCounter++;
@@ -69,14 +69,19 @@ public class Spawnmanager : MonoBehaviour
     public Vector3 getRandomSpawnPoint()
     {
         Vector3 spawnPos;
+        int maxAttempts = 10; // falls keine spawnpunkte im erlaubten bereich gefunden werden, wird nach 10 versuchen einfach einer genommen
+        int attempts = 0;
+
         do
         {
-          spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 35, Random.Range(-spawnRange, spawnRange));
-        } while (Vector3.Distance(spawnPos, Vector3.zero) < 20);
+            GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            spawnPos = spawnPoint.transform.position + Vector3.up;
+            attempts++;
+        } while (Vector3.Distance(spawnPos, Vector3.zero) < 20 && attempts < maxAttempts);
 
         return spawnPos;
-
     }
+
 }
 
 
