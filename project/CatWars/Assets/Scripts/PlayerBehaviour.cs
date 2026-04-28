@@ -58,6 +58,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Jump()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Jump, transform.position);
         _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
         isOnGround = false;
     }
@@ -74,6 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void takeDamage(float damage)
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
         this.currentHp -= damage;
         if (currentHp <= 0)
         {

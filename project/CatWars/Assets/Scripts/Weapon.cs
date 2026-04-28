@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     private int currentWave = 0; // wave counter (more than one wave per shot possible)
     protected float startAngle; // the angle in relation to the player where the first missile spawns
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
     }
@@ -53,10 +54,12 @@ public class Weapon : MonoBehaviour
         startAngle = -(coneAngle / 2) + (missileAngle / 2);
         currentWave = 0;
         waveTimer = 0;
+        AudioManager.Instance.Play(AudioManager.SoundType.Shoot, transform.position);
     }
 
     public virtual void fireWave()
     {
+        
         for (int i = 0; i < missileNumber; i++)
         {
             float fireAngle = startAngle + (missileAngle * i);

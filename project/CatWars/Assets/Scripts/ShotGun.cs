@@ -5,6 +5,7 @@ public class ShotGun : Weapon
 {
     public override void fireWave()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Shoot, transform.position);
         for (int i = 0; i < missileNumber; i++)
         {
             float fireAngle = startAngle + (missileAngle * i);
