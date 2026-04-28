@@ -4,9 +4,8 @@ using UnityEngine;
 public class Spawnmanager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public float spawnRange = 30;
+    public float spawnRange = 20;
     private float startDelay = 2;
-    public Vector3 spawnCenter = new Vector3(590f, 34f, 573f);
     public float spawnInterval = 1f;
     public float spawnCounter = 0;
     public float noe = 0;
@@ -14,7 +13,19 @@ public class Spawnmanager : MonoBehaviour
     public float waveCounter = 0;
     private bool waitingForInput = false;
 
-    void Start() { }
+    void Start()
+    {
+        startWave();
+    }
+
+    private void Update()
+    {
+        if (waitingForInput && Input.GetKeyDown(KeyCode.Return)) {
+            waitingForInput = false;
+            increaseDifficulty();
+            startWave();
+        } 
+    }
 
 
     void SpawnRandomEnemy()
@@ -36,15 +47,14 @@ public class Spawnmanager : MonoBehaviour
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                UIManager.instance.ShowWaveComplete();
-            }
+                Debug.Log("Wave cleared. Press Enter to start next wave");
+                waitingForInput = true;
+            }     
         }
     }
 
     public void startWave()
     {
-        CancelInvoke("SpawnRandomEnemy");
-        spawnCounter = 0;
         InvokeRepeating("SpawnRandomEnemy", startDelay, 1 / spawnInterval);
     }
 
@@ -61,8 +71,8 @@ public class Spawnmanager : MonoBehaviour
         Vector3 spawnPos;
         do
         {
-          spawnPos = new Vector3(spawnCenter.x + Random.Range(-spawnRange, spawnRange), spawnCenter.y, spawnCenter.z + Random.Range(-spawnRange, spawnRange));
-        } while (Vector3.Distance(spawnPos, spawnCenter) < 20);
+          spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 35, Random.Range(-spawnRange, spawnRange));
+        } while (Vector3.Distance(spawnPos, Vector3.zero) < 20);
 
         return spawnPos;
 
