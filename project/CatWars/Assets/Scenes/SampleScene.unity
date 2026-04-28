@@ -592,15 +592,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllSounds:
-  - Type: 0
+  - Type: 5
     Clip: {fileID: 8300000, guid: af840e6a604044d6aa2f2315558c85c7, type: 3}
     Volume: 1
     Source: {fileID: 0}
-  - Type: 1
-    Clip: {fileID: 8300000, guid: 8b1294120e9694e3f87347b6db5b9545, type: 3}
-    Volume: 1
-    Source: {fileID: 0}
   - Type: 2
+    Clip: {fileID: 8300000, guid: 8b1294120e9694e3f87347b6db5b9545, type: 3}
+    Volume: 0.214
+    Source: {fileID: 0}
+  - Type: 0
     Clip: {fileID: 8300000, guid: d48746b6ad2b9496493b9db5b655d0eb, type: 3}
     Volume: 1
     Source: {fileID: 0}
@@ -3450,7 +3450,7 @@ GameObject:
   - component: {fileID: 1253140346}
   m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

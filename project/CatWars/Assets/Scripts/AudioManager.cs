@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour
         Powerup,
         Shoot,
         Music_Menu,
-        Music_Battle
+        Music_Battle,
+        Hurt
         // Add more sound types as needed
     }
 
