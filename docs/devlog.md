@@ -5,7 +5,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 ## Woche 1 (Datum: DD.MM.YYYY)
 **Ziele dieser Woche:**
 *   [x] Repository aufgesetzt
-*   [ ] Player Controller Prototyp
+*   [x] Player Controller Prototyp
 
 **Erledigt von [Name Schüler A]:**
 *   Git Repo erstellt und .gitignore eingerichtet.
@@ -26,11 +26,11 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 =======
 ## Woche 2 (Datum: 10.03.2026)
 **Ziele dieser Woche:**
-*   [ ] Waffen modelle starten
-*   [ ] Gegner und Spieler fertigstellen
-*   [ ] UI erstellen
-*   [ ] Controls verbessern
-*   [ ] Mehr unterschiedliche Waffen hinzufügen
+*   [x] Waffen modelle starten
+*   [x] Gegner und Spieler fertigstellen
+*   [x] UI erstellen
+*   [x] Controls verbessern
+*   [x] Mehr unterschiedliche Waffen hinzufügen
 
 
 
@@ -55,13 +55,13 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 ## Woche 3 (Datum: 17.03.2026)
 **Ziele dieser Woche:**
-*   [ ] Waffen Modelle Fertigstellen
-*   [ ] UI erweitert
+*   [x] Waffen Modelle Fertigstellen
+*   [x] UI erweitert
+*   [x] Kamera verbessern
 
 
 **Erledigt von Gregor:**
 *   Kamera auf und ab Bewegung
-*   
 
 **Erledigt von Justin:**
 *   weitere UI Elemente erstellt
@@ -79,15 +79,14 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 ## Woche 4 (Datum: 24.03.2026)
 **Ziele dieser Woche:**
-*   [ ] Waffen erweitern
-*   [ ] Map erweitern
-*   [ ] Spieler/Enemys hinzufügen
-*   [ ] Blender-Models mit Scripts verbinden
+*   [x] Waffen erweitern
+*   [x] Map erweitern
+*   [x] Spieler/Enemys hinzufügen
+*   [x] Blender-Models mit Scripts verbinden
 
 
 **Erledigt von Gregor:**
 *   Models aus Blender mit Scripts verbinden/benutzen
-*   
 
 **Erledigt von Justin:**
 *   Map mit Brush und Steinen erweitert
@@ -106,10 +105,10 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 ## Woche 5 (Datum: 14.04.2026)
 
 **Ziele dieser Woche:**
-*   [ ] UI mit Scripts verknüpfen
-*   [ ] Soundefekte heraussuchen
-*   [ ] neue Modelle in Blender hinzufügen
-*   [ ] Modelle mit Skripten verknüpft
+*   [x] UI mit Scripts verknüpfen
+*   [x] Soundefekte heraussuchen
+*   [x] neue Modelle in Blender hinzufügen
+*   [x] Modelle mit Skripten verknüpft
 
 
 **Erledigt von Gregor:**
@@ -127,4 +126,11 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Probleme / Blocker:**
 *   SpawnManager (Spawnflächen)
->>>>>>> Stashed changes
+
+
+## Woche 7 (Datum 28.04.2026)
+
+**Ziele dieser Woche:**
+*   [ ] UI verknüpfen (nochmal, wegen undokumentiertem Vorfall in Woche 6)
+*   [ ] Crosshair implementieren
+*   [ ] 
