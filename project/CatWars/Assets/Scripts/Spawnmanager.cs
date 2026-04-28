@@ -11,7 +11,7 @@ public class Spawnmanager : MonoBehaviour
     public float noe = 0;
     public float startNoe = 1;
     public float waveCounter = 0;
-    private bool waitingForInput = false;
+    public bool waveComplete = false;
     public GameObject[] spawnPoints;
 
     void Start()
@@ -21,13 +21,19 @@ public class Spawnmanager : MonoBehaviour
 
     private void Update()
     {
-        if (waitingForInput && Input.GetKeyDown(KeyCode.Return))
+
+    }
+
+    public void continueWaves()
+    {
+        if (waveComplete)
         {
-            waitingForInput = false;
+            waveComplete = false;
             increaseDifficulty();
             startWave();
         }
     }
+
 
 
     void SpawnRandomEnemy()
@@ -47,8 +53,7 @@ public class Spawnmanager : MonoBehaviour
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                Debug.Log("Wave cleared. Press Enter to start next wave");
-                waitingForInput = true;
+                waveComplete = true;
             }
         }
     }
