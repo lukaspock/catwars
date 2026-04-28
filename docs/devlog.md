@@ -131,6 +131,26 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 ## Woche 7 (Datum 28.04.2026)
 
 **Ziele dieser Woche:**
-*   [ ] UI verknüpfen (nochmal, wegen undokumentiertem Vorfall in Woche 6)
-*   [ ] Crosshair implementieren
-*   [ ] 
+*   [x] UI verknüpfen (nochmal, wegen undokumentiertem Vorfall in Woche 6)
+*   [x] Crosshair implementieren
+*   [x] Soundeffekte angefangen
+
+**Erledigt von Gregor:**
+*    Start UI verknüpft
+*    Next Wave UI angefangen zu verknüpfen
+
+
+**Erledigt von Justin:**
+*    UI erweitert (Hp Leiste, Crosshair)
+*    Hp Skript geschrieben und implementiert
+
+
+**Erledigt von Lukas:**
+*   Soundeffekte herausgesucht (im Internet) und hinzugefügt
+*   Audiomanager hinzugefügt
+
+
+**Probleme / Blocker:**
+*   Git, Slider bei Hp Leiste
+
+
