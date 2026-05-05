@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public Button returnButton;
     public Button shopButton;
     public GameObject[] objectsToEnable;
+    private Vector3 spawnPosition = new Vector3(597f, 30.5f, 566f);
+    GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,24 +38,33 @@ public class GameManager : MonoBehaviour
             enableAll(false);   // Disable all game objects
             nextWaveButton.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            lockCursor(false);
         }
     }
 
     public void StartNextWave()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            player.transform.position = spawnPosition; // Reset Player pos
+        }
+
         enableAll(true);
         disableUI();
         PlayerUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        lockCursor(true);
         spawnmanger.continueWaves();
 
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        enableAll(false);
+        lockCursor(false);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
 
@@ -64,8 +75,7 @@ public class GameManager : MonoBehaviour
         PlayerUI.SetActive(true);                  // Show player UI
         // Enable all game objects
         enableAll(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        lockCursor(true);
     }
 
     public void disableUI()
@@ -81,6 +91,20 @@ public class GameManager : MonoBehaviour
         foreach (var obj in objectsToEnable)
         {
             obj.SetActive(enable);
+        }
+    }
+
+    public void lockCursor(bool lockCursor)
+    {
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
