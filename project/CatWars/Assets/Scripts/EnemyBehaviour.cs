@@ -61,7 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void missileCollision(Collision other)
     {
-        
+
         float missileDamage = other.gameObject.GetComponent<MissileDamage>().getDamage();
         takeDamage(missileDamage);
 
@@ -69,6 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (currentHp <= 0)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
             Destroy(gameObject);
         }
     }
@@ -93,7 +94,7 @@ public class EnemyBehaviour : MonoBehaviour
         return damage;
     }
 
-    public float getMeleeTimer() { 
-        return meleeTimer; 
+    public float getMeleeTimer() {
+        return meleeTimer;
     }
 }
