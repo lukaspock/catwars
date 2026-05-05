@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public Spawnmanager spawnmanger;
     public Button startButton;
     public GameObject startMenu;
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Button returnButton;
     public Button shopButton;
     public GameObject[] objectsToEnable;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,8 @@ public class GameManager : MonoBehaviour
         disableUI();
         startMenu.SetActive(true);                  // Show start menu
         startButton.onClick.AddListener(StartGame);
-        nextWaveButton.onClick.AddListener(spawnmanger.continueWaves);
+        nextWaveButton.onClick.AddListener(StartNextWave);
+        returnButton.onClick.AddListener(Restart);
     }
 
     void Update()
@@ -31,25 +33,39 @@ public class GameManager : MonoBehaviour
        {
             disableUI();
             waveCompleteMenu.SetActive(true);          // Show wave complete menu
-            enableAll(false);                        // Disable all game objects
+            enableAll(false);   // Disable all game objects
+            nextWaveButton.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
-    //public void ButtonOnclick()
-    //{
-    //    Debug.Log("Button clicked");
-    //}
+    public void StartNextWave()
+    {
+        enableAll(true);
+        disableUI();
+        PlayerUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        spawnmanger.continueWaves();
+
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
 
     public void StartGame()
     {
         disableUI();
         PlayerUI.SetActive(true);                  // Show player UI
-
-        enableAll(true);
-
         // Enable all game objects
-
- 
+        enableAll(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void disableUI()
