@@ -73,15 +73,12 @@ mono_crash.*
 # Builds
 *.apk
 *.aab
-*.unitypackage
-*.unitypackage.meta
 *.app
 
 # Crashlytics generated file
 crashlytics-build.properties
 
 # TestRunner generated files
-InitTestScene*.unity*
 
 # Addressables default ignores, before user customizations
 **/ServerData
@@ -97,7 +94,7 @@ InitTestScene*.unity*
 **/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
 **/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
 **/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+<<<<<<< Updated upstream
 **/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
-# Auto-generated scenes by play mode tests
-**/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
