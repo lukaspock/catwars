@@ -158,9 +158,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5713437710124055248}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1336452122096009773}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
       insertIndex: -1
@@ -171,31 +168,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8342040702893660773}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4297198760036752928}
   m_SourcePrefab: {fileID: 100100000, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
 --- !u!1 &1310389033249307563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 44d7b1e50edcbb44a8ce1d38a3aba724, type: 3}
   m_PrefabInstance: {fileID: 2228725685607286522}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5713437710124055248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310389033249307563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0a47f2c70bda4143ba946e865cffb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  attackSpeed: 1
-  meleeTimer: 0
-  weaponTimer: 0
-  isAttacking: 0
-  maxHP: 15
-  weapon: {fileID: 0}
 --- !u!114 &1336452122096009773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +252,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8003981, y: 4.2683063, z: 1}
   m_Center: {x: -0.03055036, y: 1.8067844, z: 0}
+--- !u!114 &-4297198760036752928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310389033249307563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a47f2c70bda4143ba946e865cffb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  damage: 5
+  attackSpeed: 1
+  meleeTimer: 0
+  weaponTimer: 0
+  isAttacking: 0
+  maxHP: 15
+  weapon: {fileID: 0}

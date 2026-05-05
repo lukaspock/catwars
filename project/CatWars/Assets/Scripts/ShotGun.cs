@@ -10,7 +10,7 @@ public class ShotGun : Weapon
         {
             float fireAngle = startAngle + (missileAngle * i);
             //Debug.Log(transform.position.y);
-            Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up;
+            Vector3 spawnPos = transform.position + transform.forward * 2f + Vector3.up;
             Quaternion rotation = Quaternion.Euler(0, fireAngle, 0);
             GameObject projectile = Instantiate(projectilePrefab, spawnPos, getRandomRotation());
             projectile.GetComponent<MoveForward>().speed = flySpeed;
