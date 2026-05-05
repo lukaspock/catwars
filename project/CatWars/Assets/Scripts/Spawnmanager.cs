@@ -88,5 +88,3 @@ public class Spawnmanager : MonoBehaviour
     }
 
 }
-
-
