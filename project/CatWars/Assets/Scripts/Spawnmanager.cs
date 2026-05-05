@@ -13,9 +13,12 @@ public class Spawnmanager : MonoBehaviour
     public float waveCounter = 0;
     public bool waveComplete = false;
     public GameObject[] spawnPoints;
+    public Transform playerSpawn;
+    public GameObject playerPrefab;
 
     void Start()
     {
+        playerPrefab.transform.position = playerSpawn.position;
         startWave();
     }
 
