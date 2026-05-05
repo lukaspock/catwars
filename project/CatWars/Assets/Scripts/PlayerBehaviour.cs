@@ -10,6 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool isOnGround = true;
     //public GameObject projectilePrefab;
     private float timer;
+    private double soundTimer = 0;
     public Weapon weapon;
     public float maxHp = 100;
     public float currentHp;
@@ -31,6 +32,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
+
+        if((hInput != 0 || vInput != 0) && soundTimer <= 0)
+        {
+            soundTimer = 0.4;
+            AudioManager.Instance.Play(AudioManager.SoundType.Step, transform.position);
+        }
+        else if(soundTimer >= 0)
+        {
+            soundTimer -= Time.deltaTime;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {

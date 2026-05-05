@@ -10,7 +10,10 @@ public class AudioManager : MonoBehaviour
         Shoot,
         Music_Menu,
         Music_Battle,
-        Hurt
+        Hurt,
+        Step,
+        Land,
+        EnemyDeath
         // Add more sound types as needed
     }
 
@@ -61,7 +64,7 @@ public class AudioManager : MonoBehaviour
 
         // Spawn the object at the specific position provided
         var soundObj = new GameObject($"Sound_{type}");
-        soundObj.transform.position = position; 
+        soundObj.transform.position = position;
 
         var audioSrc = soundObj.AddComponent<AudioSource>();
 
