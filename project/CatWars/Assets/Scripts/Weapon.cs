@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
     private int currentWave = 0; // wave counter (more than one wave per shot possible)
     protected float startAngle; // the angle in relation to the player where the first missile spawns
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
+
     void Start()
     {
     }
@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
                     waveTimer = waveSpeed;
                 }
             }
- 
+
         }
 
     }
@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour
 
     public virtual void fireWave()
     {
-        
+
         for (int i = 0; i < missileNumber; i++)
         {
             float fireAngle = startAngle + (missileAngle * i);
@@ -73,5 +73,9 @@ public class Weapon : MonoBehaviour
     public float getReload()
     {
         return reloadTime;
+    }
+
+    public void upgradeWeapon(){
+        projectilePrefab.GetComponent<MissileDamage>().upgradeDamage(5);
     }
 }

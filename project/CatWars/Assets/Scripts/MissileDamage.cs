@@ -20,4 +20,9 @@ public class MissileDamage : MonoBehaviour
     {
         return damage;
     }
+
+    public void upgradeDamage(float amount)
+    {
+        damage += amount;
+    }
 }
