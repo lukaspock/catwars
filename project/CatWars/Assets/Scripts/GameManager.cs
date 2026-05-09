@@ -22,17 +22,24 @@ public class GameManager : MonoBehaviour
     public Button shotgunButton;
     public Button gunButton;
     private WeaponType weaponType;
+    public TMP_Text playerHP;
+    public TMP_Text waveCounter;
+    public bool gameIsOver = false;
+    public Button gameOverRestartButton;
+    public TMP_Text goldText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lockCursor(false);
         Debug.Log("GAME STARTED");
         enableAll(false);
         disableUI();
         startMenu.SetActive(true);                  // Show start menu
-        //startButton.onClick.AddListener(StartGame);
+        startButton.onClick.AddListener(StartGame);
         nextWaveButton.onClick.AddListener(StartNextWave);
         returnButton.onClick.AddListener(Restart);
+        gameOverRestartButton.onClick.AddListener(Restart);
     }
 
     void Update()
@@ -43,8 +50,9 @@ public class GameManager : MonoBehaviour
             waveCompleteMenu.SetActive(true);          // Show wave complete menu
             enableAll(false);   // Disable all game objects
             nextWaveButton.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
             lockCursor(false);
+            updateGoldUI(playerBehaviour.goldCount);
             weaponType = playerBehaviour.weaponType;
 
             if (weaponType == WeaponType.Shotgun)
@@ -92,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
         enableAll(false);
         lockCursor(false);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
@@ -100,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        gameIsOver = false;
         Debug.Log("START GAME PRESSED");
         disableUI();
         PlayerUI.SetActive(true);                  // Show player UI
@@ -137,6 +146,31 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
+    public void UpdateHealthUI(float newHealth, float maxHealth)
+    {
+        playerHP.text = "HP: " + newHealth + "/" + maxHealth;
+    }
+
+    public void UpdateWaveCounterUI(float newWave)
+    {
+        waveCounter.text = "Wave: " + newWave;
+    }
+
+    public void GameOver()
+    {
+        disableUI();
+        gameOverMenu.SetActive(true);               // Show game over menu
+        enableAll(false);   // Disable all game objects
+        lockCursor(false);
+        gameIsOver = true;
+    }
+
+    public void updateGoldUI(float gold)
+    {
+        goldText.text = "Gold: " + gold;
+    }
+
 
 
 }

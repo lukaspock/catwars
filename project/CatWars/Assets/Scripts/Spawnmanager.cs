@@ -10,7 +10,7 @@ public class Spawnmanager : MonoBehaviour
     public float spawnCounter = 0;
     public float noe = 0;
     public float startNoe = 1;
-    public float waveCounter = 0;
+    public float waveCounter = 1;
     public bool waveComplete = false;
     public GameObject[] spawnPoints;
     public Transform playerSpawn;
@@ -32,6 +32,7 @@ public class Spawnmanager : MonoBehaviour
         if (waveComplete)
         {
             waveComplete = false;
+            CancelInvoke("SpawnRandomEnemy");
             increaseDifficulty();
             startWave();
         }
@@ -72,6 +73,8 @@ public class Spawnmanager : MonoBehaviour
         spawnInterval *= 1.2f;
         waveCounter++;
         startNoe *= 1.2f;
+        GameObject manager = GameObject.Find("GameManager");
+        manager.GetComponent<GameManager>().UpdateWaveCounterUI(waveCounter+1);
     }
 
     public Vector3 getRandomSpawnPoint()
@@ -88,6 +91,16 @@ public class Spawnmanager : MonoBehaviour
         } while (Vector3.Distance(spawnPos, Vector3.zero) < 20 && attempts < maxAttempts);
 
         return spawnPos;
+    }
+
+    /*void OnEnable()
+    {
+        startWave();
+    }*/
+
+    void OnDisable()
+    {
+        CancelInvoke("SpawnRandomEnemy");
     }
 
 }

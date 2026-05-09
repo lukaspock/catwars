@@ -71,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
       insertIndex: -1
       addedObject: {fileID: -112627762371701548}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 529378638929912115}
   m_SourcePrefab: {fileID: 100100000, guid: 7004dff145d154da096e07f80d614da9, type: 3}
 --- !u!1 &3511523295717781456 stripped
 GameObject:
@@ -89,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c21d65a44f4bb3468181d0f6d08d5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 0
+  upgradePrice: 0
   flySpeed: 30
   missileNumber: 1
   coneAngle: 0
@@ -96,3 +101,17 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4970338806957830231, guid: e4a08d9c7202a4bd08158ce2cbdddd91, type: 3}
   waves: 1
   waveSpeed: 1
+--- !u!114 &529378638929912115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511523295717781456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 2
+  clampAngle: 60

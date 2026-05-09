@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8777162970070069496}
   - component: {fileID: -7308691842383489725}
+  - component: {fileID: 2252635557819138451}
   m_Layer: 0
   m_Name: Shotgun 1
   m_TagString: Untagged
@@ -45,13 +46,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd244f49e65c2a4e9a909f74ea3ad1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 0
+  upgradePrice: 0
   flySpeed: 20
   missileNumber: 12
   coneAngle: 10
-  reloadTime: 0.5
+  reloadTime: 1
   projectilePrefab: {fileID: 4970338806957830231, guid: e4a08d9c7202a4bd08158ce2cbdddd91, type: 3}
   waves: 1
   waveSpeed: 1
+--- !u!114 &2252635557819138451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704084302032153419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 2
+  clampAngle: 60
 --- !u!1001 &3961434993631183716
 PrefabInstance:
   m_ObjectHideFlags: 0

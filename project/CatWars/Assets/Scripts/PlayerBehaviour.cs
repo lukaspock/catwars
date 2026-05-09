@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
+using System;
 
 public enum WeaponType
 {
@@ -134,11 +136,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void takeDamage(float damage)
     {
+        GameObject manager = GameObject.Find("GameManager");
         AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
         this.currentHp -= damage;
+        manager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
         if (currentHp <= 0)
         {
-            UIManager.instance.ShowGameOver();
+            manager.GetComponent<GameManager>().GameOver();
         }
     }
 
@@ -185,4 +189,5 @@ public class PlayerBehaviour : MonoBehaviour
             goldCount -= weapon.price;
         }
     }
+
 }
