@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
     public Button startButton;
     public GameObject startMenu;
@@ -17,10 +19,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] objectsToEnable;
     private Vector3 spawnPosition = new Vector3(597f, 30.5f, 566f);
     GameObject player;
+    public Button shotgunButton;
+    public Button gunButton;
+    private WeaponType weaponType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lockCursor(false);
+        Debug.Log("GAME STARTED");
         enableAll(false);
         disableUI();
         startMenu.SetActive(true);                  // Show start menu
@@ -31,14 +38,37 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       if (spawnmanger.waveComplete)
-       {
+        if (spawnmanger.waveComplete)
+        {
             disableUI();
             waveCompleteMenu.SetActive(true);          // Show wave complete menu
             enableAll(false);   // Disable all game objects
             nextWaveButton.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             lockCursor(false);
+            weaponType = playerBehaviour.weaponType;
+
+            if (weaponType == WeaponType.Shotgun)
+            {
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (1000g)";
+                shotgunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+            }
+            else
+            {
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Shotgun (1500g)";
+                shotgunButton.onClick.AddListener(playerBehaviour.switchToShotgun);
+            }
+
+            if (weaponType == WeaponType.Gun)
+            {
+                gunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (500g)";
+                gunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+            }
+            else
+            {
+                gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
+                gunButton.onClick.AddListener(playerBehaviour.switchToPistol);
+            }
         }
     }
 
@@ -71,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("START GAME PRESSED");
         disableUI();
         PlayerUI.SetActive(true);                  // Show player UI
         // Enable all game objects
@@ -82,7 +113,7 @@ public class GameManager : MonoBehaviour
     {
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        waveCompleteMenu.SetActive(false); 
+        waveCompleteMenu.SetActive(false);
         PlayerUI.SetActive(false);
     }
 
@@ -107,6 +138,5 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
 
 }

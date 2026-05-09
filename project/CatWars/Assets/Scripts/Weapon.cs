@@ -3,6 +3,8 @@ using UnityEngine.Rendering;
 
 public class Weapon : MonoBehaviour
 {
+    public int price;
+    public int upgradePrice;
     public float flySpeed;
     public float missileNumber;
     public float coneAngle; // how far the missiles are spread
@@ -75,7 +77,8 @@ public class Weapon : MonoBehaviour
         return reloadTime;
     }
 
-    public void upgradeWeapon(){
+    public void upgradeWeapon()
+    {
         projectilePrefab.GetComponent<MissileDamage>().upgradeDamage(5);
     }
 }

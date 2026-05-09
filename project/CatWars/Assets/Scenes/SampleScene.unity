@@ -2101,7 +2101,7 @@ GameObject:
   - component: {fileID: 704996414}
   - component: {fileID: 704996413}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: ShotgunButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,12 +2851,78 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &924728499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 924728501}
+  - component: {fileID: 924728500}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &924728500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924728499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06155c775fce354299492874bd0da67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBehaviour: {fileID: 952356784}
+  spawnmanger: {fileID: 1540632020}
+  startButton: {fileID: 886123583}
+  startMenu: {fileID: 882717198}
+  gameOverMenu: {fileID: 1852802469}
+  waveCompleteMenu: {fileID: 1291732969}
+  PlayerUI: {fileID: 1529609419}
+  nextWaveButton: {fileID: 2109683808}
+  returnButton: {fileID: 336242329}
+  shopButton: {fileID: 0}
+  objectsToEnable:
+  - {fileID: 1540632019}
+  - {fileID: 715423778}
+  - {fileID: 250708176}
+  - {fileID: 341976000}
+  - {fileID: 1447344404}
+  - {fileID: 826432848}
+  - {fileID: 1619094506}
+  - {fileID: 1062935705}
+  - {fileID: 247769005}
+  shotgunButton: {fileID: 704996413}
+  gunButton: {fileID: 1005202885}
+--- !u!4 &924728501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924728499}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 599.69946, y: 32.5581, z: 580.1377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &952356784 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3518063528969432033, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
   m_PrefabInstance: {fileID: 1359287102}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1619094506}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043d859555e090a4eafc446b620c024a, type: 3}
@@ -2906,7 +2972,7 @@ GameObject:
   - component: {fileID: 1005202886}
   - component: {fileID: 1005202885}
   m_Layer: 0
-  m_Name: Button
+  m_Name: GunButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4040,6 +4106,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1619094506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2552275400678437964, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
+  m_PrefabInstance: {fileID: 1359287102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1619144822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,3 +5225,4 @@ SceneRoots:
   - {fileID: 715423779}
   - {fileID: 1359287102}
   - {fileID: 988117458}
+  - {fileID: 924728501}

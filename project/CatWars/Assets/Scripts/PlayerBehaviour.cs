@@ -12,7 +12,8 @@ public enum WeaponType
 }
 
 [System.Serializable]
-public class WeaponPrefabs{
+public class WeaponPrefabs
+{
     public WeaponType weaponType;
     public Weapon prefab;
 
@@ -70,12 +71,12 @@ public class PlayerBehaviour : MonoBehaviour
         hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
-        if((hInput != 0 || vInput != 0) && soundTimer <= 0)
+        if ((hInput != 0 || vInput != 0) && soundTimer <= 0)
         {
             soundTimer = 0.4;
             AudioManager.Instance.Play(AudioManager.SoundType.Step, transform.position);
         }
-        else if(soundTimer >= 0)
+        else if (soundTimer >= 0)
         {
             soundTimer -= Time.deltaTime;
         }
@@ -102,7 +103,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (weaponsDic.ContainsKey(weaponType))
         {
-            Destroy(weapon);
+            Destroy(weapon.gameObject);
             weapon = Instantiate(weaponsDic[weaponType].prefab, startingPosition.position, startingPosition.rotation, startingPosition);
             this.weaponType = weaponType;
         }
@@ -123,7 +124,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Landed");
             isOnGround = true;
@@ -147,22 +148,47 @@ public class PlayerBehaviour : MonoBehaviour
         Debug.Log($"Added {amount} gold. Total: {goldCount}");
     }
 
-    public void decreaseGold(int amount){
+    public void decreaseGold(int amount)
+    {
         goldCount -= amount;
     }
 
-    public void upgradeWeapon(){
-        if(goldCount >= 500){
+    public void upgradeWeapon()
+    {
+        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+        Debug.Log("UPGRADE WEAPON CALLED");
+
+        if (goldCount >= weapon.upgradePrice)
+        {
+            Debug.Log($"Upgrading weapon: {weapon.name}");
             weapon.upgradeWeapon();
-            goldCount -= 500;
+            goldCount -= weapon.upgradePrice;
         }
     }
 
-    public void switchToShotgun(){
-        SwitchWeapon(WeaponType.Shotgun);
+    public void switchToShotgun()
+    {
+        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+        Debug.Log("Switch WEAPON CALLED");
+
+        if (goldCount >= weapon.price)
+        {
+            Debug.Log($"Switching to shotgun: {weapon.name}");
+            SwitchWeapon(WeaponType.Shotgun);
+            goldCount -= weapon.price;
+        }
     }
 
-    public void switchToPistol(){
-        SwitchWeapon(WeaponType.Gun);
+    public void switchToPistol()
+    {
+        Weapon weapon = weaponsDic[WeaponType.Gun].prefab;
+        Debug.Log("Switch WEAPON CALLED");
+
+        if (goldCount >= weapon.price)
+        {
+            Debug.Log($"Switching to pistol: {weapon.name}");
+            SwitchWeapon(WeaponType.Gun);
+            goldCount -= weapon.price;
+        }
     }
 }
