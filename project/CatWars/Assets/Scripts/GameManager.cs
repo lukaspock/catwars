@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
     public Button startButton;
     public GameObject startMenu;
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] objectsToEnable;
     private Vector3 spawnPosition = new Vector3(597f, 30.5f, 566f);
     GameObject player;
+    public Button shotgunButton;
+    public Button gunButton;
+    private WeaponType weaponType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,14 +35,26 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       if (spawnmanger.waveComplete)
-       {
+        if (spawnmanger.waveComplete)
+        {
             disableUI();
             waveCompleteMenu.SetActive(true);          // Show wave complete menu
             enableAll(false);   // Disable all game objects
             nextWaveButton.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             lockCursor(false);
+            weaponType = player.GetComponent<Weapon>().weaponType;
+            if (weaponType == WeaponType.Shotgun)
+            {
+                shopButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (1000g)";
+                shopButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+            }
+            else
+            {
+                shopButton.GetComponentInChildren<TMP_Text>().text = "Shotgun (1500g)";
+                shopButton.onClick.AddListener(playerBehaviour.switchToShotgun);
+            }
+
         }
     }
 
@@ -82,7 +98,7 @@ public class GameManager : MonoBehaviour
     {
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        waveCompleteMenu.SetActive(false); 
+        waveCompleteMenu.SetActive(false);
         PlayerUI.SetActive(false);
     }
 

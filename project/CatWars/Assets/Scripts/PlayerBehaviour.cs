@@ -12,7 +12,8 @@ public enum WeaponType
 }
 
 [System.Serializable]
-public class WeaponPrefabs{
+public class WeaponPrefabs
+{
     public WeaponType weaponType;
     public Weapon prefab;
 
@@ -70,12 +71,12 @@ public class PlayerBehaviour : MonoBehaviour
         hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
-        if((hInput != 0 || vInput != 0) && soundTimer <= 0)
+        if ((hInput != 0 || vInput != 0) && soundTimer <= 0)
         {
             soundTimer = 0.4;
             AudioManager.Instance.Play(AudioManager.SoundType.Step, transform.position);
         }
-        else if(soundTimer >= 0)
+        else if (soundTimer >= 0)
         {
             soundTimer -= Time.deltaTime;
         }
@@ -123,7 +124,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Landed");
             isOnGround = true;
@@ -147,22 +148,27 @@ public class PlayerBehaviour : MonoBehaviour
         Debug.Log($"Added {amount} gold. Total: {goldCount}");
     }
 
-    public void decreaseGold(int amount){
+    public void decreaseGold(int amount)
+    {
         goldCount -= amount;
     }
 
-    public void upgradeWeapon(){
-        if(goldCount >= 500){
+    public void upgradeWeapon()
+    {
+        if (goldCount >= 1000)
+        {
             weapon.upgradeWeapon();
-            goldCount -= 500;
+            goldCount -= 1000;
         }
     }
 
-    public void switchToShotgun(){
+    public void switchToShotgun()
+    {
         SwitchWeapon(WeaponType.Shotgun);
     }
 
-    public void switchToPistol(){
+    public void switchToPistol()
+    {
         SwitchWeapon(WeaponType.Gun);
     }
 }
