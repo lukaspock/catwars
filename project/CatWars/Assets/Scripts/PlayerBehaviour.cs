@@ -103,7 +103,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (weaponsDic.ContainsKey(weaponType))
         {
-            Destroy(weapon);
+            Destroy(weapon.gameObject);
             weapon = Instantiate(weaponsDic[weaponType].prefab, startingPosition.position, startingPosition.rotation, startingPosition);
             this.weaponType = weaponType;
         }
@@ -156,9 +156,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void upgradeWeapon()
     {
         Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+        Debug.Log("UPGRADE WEAPON CALLED");
 
         if (goldCount >= weapon.upgradePrice)
         {
+            Debug.Log($"Upgrading weapon: {weapon.name}");
             weapon.upgradeWeapon();
             goldCount -= weapon.upgradePrice;
         }
@@ -167,9 +169,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void switchToShotgun()
     {
         Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+        Debug.Log("Switch WEAPON CALLED");
 
         if (goldCount >= weapon.price)
         {
+            Debug.Log($"Switching to shotgun: {weapon.name}");
             SwitchWeapon(WeaponType.Shotgun);
             goldCount -= weapon.price;
         }
@@ -178,9 +182,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void switchToPistol()
     {
         Weapon weapon = weaponsDic[WeaponType.Gun].prefab;
+        Debug.Log("Switch WEAPON CALLED");
 
         if (goldCount >= weapon.price)
         {
+            Debug.Log($"Switching to pistol: {weapon.name}");
             SwitchWeapon(WeaponType.Gun);
             goldCount -= weapon.price;
         }
