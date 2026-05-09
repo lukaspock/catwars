@@ -155,20 +155,34 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void upgradeWeapon()
     {
-        if (goldCount >= 1000)
+        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+
+        if (goldCount >= weapon.upgradePrice)
         {
             weapon.upgradeWeapon();
-            goldCount -= 1000;
+            goldCount -= weapon.upgradePrice;
         }
     }
 
     public void switchToShotgun()
     {
-        SwitchWeapon(WeaponType.Shotgun);
+        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+
+        if (goldCount >= weapon.price)
+        {
+            SwitchWeapon(WeaponType.Shotgun);
+            goldCount -= weapon.price;
+        }
     }
 
     public void switchToPistol()
     {
-        SwitchWeapon(WeaponType.Gun);
+        Weapon weapon = weaponsDic[WeaponType.Gun].prefab;
+
+        if (goldCount >= weapon.price)
+        {
+            SwitchWeapon(WeaponType.Gun);
+            goldCount -= weapon.price;
+        }
     }
 }

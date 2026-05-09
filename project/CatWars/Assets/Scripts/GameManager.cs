@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,18 +44,29 @@ public class GameManager : MonoBehaviour
             nextWaveButton.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             lockCursor(false);
-            weaponType = player.GetComponent<Weapon>().weaponType;
+            weaponType = playerBehaviour.weaponType;
+
             if (weaponType == WeaponType.Shotgun)
             {
-                shopButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (1000g)";
-                shopButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (1000g)";
+                shotgunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
             }
             else
             {
-                shopButton.GetComponentInChildren<TMP_Text>().text = "Shotgun (1500g)";
-                shopButton.onClick.AddListener(playerBehaviour.switchToShotgun);
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Shotgun (1500g)";
+                shotgunButton.onClick.AddListener(playerBehaviour.switchToShotgun);
             }
 
+            if (weaponType == WeaponType.Gun)
+            {
+                gunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (500g)";
+                gunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+            }
+            else
+            {
+                gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
+                gunButton.onClick.AddListener(playerBehaviour.switchToPistol);
+            }
         }
     }
 
