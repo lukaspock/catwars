@@ -26,10 +26,11 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("GAME STARTED");
         enableAll(false);
         disableUI();
         startMenu.SetActive(true);                  // Show start menu
-        startButton.onClick.AddListener(StartGame);
+        //startButton.onClick.AddListener(StartGame);
         nextWaveButton.onClick.AddListener(StartNextWave);
         returnButton.onClick.AddListener(Restart);
     }
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("START GAME PRESSED");
         disableUI();
         PlayerUI.SetActive(true);                  // Show player UI
         // Enable all game objects
