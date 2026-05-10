@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c21d65a44f4bb3468181d0f6d08d5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 0
+  upgradePrice: 100
   flySpeed: 30
   missileNumber: 1
   coneAngle: 0

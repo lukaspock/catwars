@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 0
-  upgradePrice: 0
+  upgradePrice: 250
   flySpeed: 30
   missileNumber: 1
   coneAngle: 0

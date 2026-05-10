@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public Button gameOverRestartButton;
     public TMP_Text goldText;
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,34 +49,43 @@ public class GameManager : MonoBehaviour
         if (spawnmanger.waveComplete)
         {
             disableUI();
-            waveCompleteMenu.SetActive(true);          // Show wave complete menu
-            enableAll(false);   // Disable all game objects
+            waveCompleteMenu.SetActive(true);
+            enableAll(false);
             nextWaveButton.gameObject.SetActive(true);
-            //Cursor.lockState = CursorLockMode.None;
             lockCursor(false);
             updateGoldUI(playerBehaviour.goldCount);
             weaponType = playerBehaviour.weaponType;
 
+            shotgunButton.onClick.RemoveAllListeners();
+            gunButton.onClick.RemoveAllListeners();
+
             if (weaponType == WeaponType.Shotgun)
             {
-                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (1000g)";
-                shotgunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+                int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.upgradePrice;
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
+                shotgunButton.interactable = playerBehaviour.goldCount >= price;
+                shotgunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
             }
             else
             {
-                shotgunButton.GetComponentInChildren<TMP_Text>().text = "Shotgun (1500g)";
-                shotgunButton.onClick.AddListener(playerBehaviour.switchToShotgun);
+                int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.price;
+                shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Shotgun ({price}g)";
+                shotgunButton.interactable = playerBehaviour.goldCount >= price;
+                shotgunButton.onClick.AddListener(() => { playerBehaviour.switchToShotgun(); updateGoldUI(playerBehaviour.goldCount); });
             }
 
             if (weaponType == WeaponType.Gun)
             {
-                gunButton.GetComponentInChildren<TMP_Text>().text = "Upgrade (500g)";
-                gunButton.onClick.AddListener(playerBehaviour.upgradeWeapon);
+                int price = playerBehaviour.weaponsDic[WeaponType.Gun].prefab.upgradePrice;
+                gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
+                gunButton.interactable = playerBehaviour.goldCount >= price;
+                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
             }
             else
             {
                 gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
-                gunButton.onClick.AddListener(playerBehaviour.switchToPistol);
+                gunButton.interactable = true;
+                gunButton.onClick.AddListener(() => { playerBehaviour.switchToPistol(); updateGoldUI(playerBehaviour.goldCount); });
             }
         }
     }
