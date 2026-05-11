@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   upgradePrice: 250
-  flySpeed: 30
+  flySpeed: 60
   missileNumber: 1
   coneAngle: 0
   reloadTime: 0.2
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3511523295717781456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
   m_Name: 

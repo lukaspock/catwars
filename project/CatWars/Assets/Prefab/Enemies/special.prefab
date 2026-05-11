@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57389e2c7bdead14699c0ce82996c472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBound: 700
-  lowerBound: -100
+  topBound: 1000
+  lowerBound: -1000
 --- !u!114 &4261201949271598762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a47f2c70bda4143ba946e865cffb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldOnDeath: 0
+  player: {fileID: 0}
   damage: 10
   attackSpeed: 1
   meleeTimer: 0
@@ -234,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b07821d77f57544cb7e9cffce316d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 10
 --- !u!54 &8435857076748493431
 Rigidbody:
   m_ObjectHideFlags: 0

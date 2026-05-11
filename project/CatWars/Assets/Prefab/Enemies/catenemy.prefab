@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57389e2c7bdead14699c0ce82996c472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBound: 700
-  lowerBound: -100
+  topBound: 1000
+  lowerBound: -1000
 --- !u!54 &6282568577928210468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a47f2c70bda4143ba946e865cffb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldOnDeath: 0
   player: {fileID: 0}
   damage: 5
   attackSpeed: 1

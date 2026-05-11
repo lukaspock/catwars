@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     public bool isAttacking = false;
     public float maxHP = 1;
     public Weapon weapon = null;
+    private bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,11 +71,18 @@ public class EnemyBehaviour : MonoBehaviour
 
         Destroy(other.gameObject);
 
+        AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
+
         if (currentHp <= 0)
         {
-            AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
-            Destroy(gameObject);
-            player.AddGold(10);
+            if (!dead)
+            {
+                dead = true;
+                AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
+                Destroy(gameObject);
+                player.AddGold(10);
+            }
+
         }
     }
 
