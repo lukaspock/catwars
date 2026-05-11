@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
+using System;
 
 public enum WeaponType
 {
@@ -36,6 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
     //private float startDelay = 2f;
     //
     public Weapon weapon;
+    private int killCount = 0;
 
     public WeaponPrefabs[] allWeaponPrefabs = new WeaponPrefabs[10];
     public WeaponType weaponType;
@@ -134,11 +137,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void takeDamage(float damage)
     {
+        GameObject manager = GameObject.Find("GameManager");
         AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
         this.currentHp -= damage;
+        manager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
         if (currentHp <= 0)
         {
-            UIManager.instance.ShowGameOver();
+            manager.GetComponent<GameManager>().GameOver();
         }
     }
 
@@ -161,7 +166,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (goldCount >= weapon.upgradePrice)
         {
             Debug.Log($"Upgrading weapon: {weapon.name}");
-            weapon.upgradeWeapon();
+            weapon.upgradeWeapon(weapon.damageBonusOnUpgradePerMissile);
             goldCount -= weapon.upgradePrice;
         }
     }
@@ -191,4 +196,16 @@ public class PlayerBehaviour : MonoBehaviour
             goldCount -= weapon.price;
         }
     }
+
+    public void AddKillCount()
+    {
+        killCount++;
+        Debug.Log($"Kill count: {killCount}");
+    }
+
+    public int getKillCount()
+    {
+        return killCount;
+    }
+
 }

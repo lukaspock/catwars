@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     public bool isAttacking = false;
     public float maxHP = 1;
     public Weapon weapon = null;
+    private bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
             isAttacking = false;
         }
 
+        // for future upgrades with enemies with weapons
         if (weapon != null && weaponTimer <= 0)
         {
             Debug.Log("Shot" + weaponTimer);
@@ -42,6 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    // decides between colliding with players or bullets
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player") && !isAttacking)
@@ -55,6 +58,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    // player takes damage
     public void playerCollision(Collision other)
     {
         isAttacking = true;
@@ -62,19 +66,30 @@ public class EnemyBehaviour : MonoBehaviour
         other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);
     }
 
+    // enemy takes damage on missile collission
     public void missileCollision(Collision other)
     {
 
         float missileDamage = other.gameObject.GetComponent<MissileDamage>().getDamage();
         takeDamage(missileDamage);
 
+        //  missile gets destroyed
         Destroy(other.gameObject);
 
+        AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
+
+        // when enemy dies, add gold and rise kill count
         if (currentHp <= 0)
         {
-            AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
-            Destroy(gameObject);
-            player.AddGold(10);
+            if (!dead)
+            {
+                dead = true;
+                AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
+                Destroy(gameObject);
+                player.AddGold(goldOnDeath);
+                player.AddKillCount();
+            }
+
         }
     }
 
@@ -98,7 +113,8 @@ public class EnemyBehaviour : MonoBehaviour
         return damage;
     }
 
-    public float getMeleeTimer() {
+    public float getMeleeTimer()
+    {
         return meleeTimer;
     }
 }
