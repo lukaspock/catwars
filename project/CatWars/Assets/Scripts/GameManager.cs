@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System.IO;
 using TMPro;
+using UnityEngine;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,21 +28,27 @@ public class GameManager : MonoBehaviour
     public bool gameIsOver = false;
     public Button gameOverRestartButton;
     public TMP_Text goldText;
-
-
+    public TMP_Text killCountWaveOver;
+    public TMP_Text killCountGameOver;
+    string path;
+    public TMP_Text highScoreCounter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // sets the path for the score file to be saved
+        path = Path.Combine(Application.persistentDataPath, "scores.txt");
         lockCursor(false);
         Debug.Log("GAME STARTED");
         enableAll(false);
         disableUI();
-        startMenu.SetActive(true);                  // Show start menu
+        startMenu.SetActive(true);  // Show start menu
+        highScoreCounter.text = "High Score: " + GetHighscore();
         startButton.onClick.AddListener(StartGame);
         nextWaveButton.onClick.AddListener(StartNextWave);
         returnButton.onClick.AddListener(Restart);
         gameOverRestartButton.onClick.AddListener(Restart);
+
     }
 
     void Update()
@@ -49,6 +56,7 @@ public class GameManager : MonoBehaviour
         if (spawnmanger.waveComplete)
         {
             disableUI();
+            killCountWaveOver.text = "Kill Count: " + playerBehaviour.getKillCount().ToString();
             waveCompleteMenu.SetActive(true);
             enableAll(false);
             nextWaveButton.gameObject.SetActive(true);
@@ -107,16 +115,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //disables all gamobjects, saves highscore and resets scene
     public void Restart()
     {
         enableAll(false);
         lockCursor(false);
+        saveScore(playerBehaviour.getKillCount());
+        highScoreCounter.text = "HighScore: " + GetHighscore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
 
-
+    // starts the game (ain't no way)
     public void StartGame()
     {
         gameIsOver = false;
@@ -128,6 +139,8 @@ public class GameManager : MonoBehaviour
         lockCursor(true);
     }
 
+
+    // disables all UI
     public void disableUI()
     {
         startMenu.SetActive(false);
@@ -136,7 +149,8 @@ public class GameManager : MonoBehaviour
         PlayerUI.SetActive(false);
     }
 
-    public void enableAll(bool enable) // enables or disables all game objects in the array based on the boolean parameter
+    // enables or disables all gameobjects (in the list)
+    public void enableAll(bool enable) 
     {
         foreach (var obj in objectsToEnable)
         {
@@ -144,6 +158,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // locks / unlocks the cursor and makes it visible / invis
     public void lockCursor(bool lockCursor)
     {
         if (lockCursor)
@@ -158,28 +173,66 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // updates the health ui
+
     public void UpdateHealthUI(float newHealth, float maxHealth)
     {
         playerHP.text = "HP: " + newHealth + "/" + maxHealth;
     }
 
+
+    // updates the wave counter
     public void UpdateWaveCounterUI(float newWave)
     {
         waveCounter.text = "Wave: " + newWave;
     }
 
+    // shows gameover menu and stops the game
     public void GameOver()
     {
         disableUI();
+        killCountGameOver.text = "Kill Count: " + playerBehaviour.getKillCount().ToString();
         gameOverMenu.SetActive(true);               // Show game over menu
         enableAll(false);   // Disable all game objects
         lockCursor(false);
         gameIsOver = true;
     }
 
+    // updates gold ui
+
     public void updateGoldUI(float gold)
     {
         goldText.text = "Gold: " + gold;
+    }
+
+    // save the score to the score file to the path from the start
+    public void saveScore(int score)
+    {
+        File.AppendAllText(path, score + "\n");
+    }
+
+    // reads the score.txt file from start and gets the highest score
+    public int GetHighscore()
+    {
+        if (!File.Exists(path))
+            return 0;
+
+        string[] lines = File.ReadAllLines(path);
+
+        int highest = 0;
+
+        foreach (string line in lines)
+        {
+            if (int.TryParse(line, out int score))
+            {
+                if (score > highest)
+                {
+                    highest = score;
+                }
+            }
+        }
+
+        return highest;
     }
 
 
