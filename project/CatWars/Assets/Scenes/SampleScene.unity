@@ -6377,6 +6377,8 @@ MonoBehaviour:
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
+  - {fileID: 6229277175612323097, guid: 773fbab065cdf456f90bc1feba3d6335, type: 3}
+  - {fileID: 6229277175612323097, guid: 773fbab065cdf456f90bc1feba3d6335, type: 3}
   spawnRange: 100
   spawnInterval: 1
   spawnCounter: 0
