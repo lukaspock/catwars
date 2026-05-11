@@ -80,7 +80,8 @@ public class EnemyBehaviour : MonoBehaviour
                 dead = true;
                 AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
                 Destroy(gameObject);
-                player.AddGold(10);
+                player.AddGold(goldOnDeath);
+                player.AddKillCount();
             }
 
         }
@@ -106,7 +107,8 @@ public class EnemyBehaviour : MonoBehaviour
         return damage;
     }
 
-    public float getMeleeTimer() {
+    public float getMeleeTimer()
+    {
         return meleeTimer;
     }
 }

@@ -38,6 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
     //private float startDelay = 2f;
     //
     public Weapon weapon;
+    private int killCount = 0;
 
     public WeaponPrefabs[] allWeaponPrefabs = new WeaponPrefabs[10];
     public WeaponType weaponType;
@@ -165,7 +166,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (goldCount >= weapon.upgradePrice)
         {
             Debug.Log($"Upgrading weapon: {weapon.name}");
-            weapon.upgradeWeapon();
+            weapon.upgradeWeapon(weapon.damageBonusOnUpgradePerMissile);
             goldCount -= weapon.upgradePrice;
         }
     }
@@ -194,6 +195,17 @@ public class PlayerBehaviour : MonoBehaviour
             SwitchWeapon(WeaponType.Gun);
             goldCount -= weapon.price;
         }
+    }
+
+    public void AddKillCount()
+    {
+        killCount++;
+        Debug.Log($"Kill count: {killCount}");
+    }
+
+    public int getKillCount()
+    {
+        return killCount;
     }
 
 }
