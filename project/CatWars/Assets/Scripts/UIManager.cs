@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+// wird nicht verwendet
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;

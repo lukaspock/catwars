@@ -3,6 +3,7 @@ using UnityEngine.Rendering;
 
 public class ShotGun : Weapon
 {
+    // calculates a random pattern for the shotgun bullets to be fired in
     public override void fireWave()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Shoot, transform.position);
@@ -17,6 +18,7 @@ public class ShotGun : Weapon
         }
     }
 
+    // calculates a rotation for the bullets to fly in (so they don't go straight forward)
     public Quaternion getRandomRotation()
     {
         float randomY = Random.Range(0f, 10f);

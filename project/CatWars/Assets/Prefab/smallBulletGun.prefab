@@ -198,5 +198,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57389e2c7bdead14699c0ce82996c472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBound: 700
-  lowerBound: -100
+  topBound: 1000
+  lowerBound: -1000

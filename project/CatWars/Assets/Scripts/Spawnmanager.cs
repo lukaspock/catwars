@@ -14,13 +14,11 @@ public class Spawnmanager : MonoBehaviour
     public bool waveComplete = false;
     public GameObject[] spawnPoints;
     public Transform playerSpawn;
-    public GameObject playerPrefab;
     public GameObject bossPrefab;
     private int bossSpawnInterval = 3;
 
     void Start()
     {
-        playerPrefab.transform.position = playerSpawn.position;
         startWave();
     }
 
@@ -88,7 +86,7 @@ public class Spawnmanager : MonoBehaviour
         waveCounter++;
         startNoe *= 1.2f + 1;
         GameObject manager = GameObject.Find("GameManager");
-        manager.GetComponent<GameManager>().UpdateWaveCounterUI(waveCounter+1);
+        manager.GetComponent<GameManager>().UpdateWaveCounterUI(waveCounter);
     }
 
     public Vector3 getRandomSpawnPoint()
