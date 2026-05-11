@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public int goldOnDeath;
-    public PlayerBehaviour player;
+    private PlayerBehaviour player;
     public float damage = 1;
     public float attackSpeed = 1;
     private float currentHp;
@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     public bool isAttacking = false;
     public float maxHP = 1;
     public Weapon weapon = null;
-    private bool dead = false;
+    public bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -80,7 +80,7 @@ public class EnemyBehaviour : MonoBehaviour
                 dead = true;
                 AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
                 Destroy(gameObject);
-                player.AddGold(10);
+                player.AddGold(goldOnDeath);
             }
 
         }

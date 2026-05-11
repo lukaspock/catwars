@@ -14,13 +14,11 @@ public class Spawnmanager : MonoBehaviour
     public bool waveComplete = false;
     public GameObject[] spawnPoints;
     public Transform playerSpawn;
-    public GameObject playerPrefab;
     public GameObject bossPrefab;
     private int bossSpawnInterval = 3;
 
     void Start()
     {
-        playerPrefab.transform.position = playerSpawn.position;
         startWave();
     }
 
