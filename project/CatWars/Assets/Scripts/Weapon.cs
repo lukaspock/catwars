@@ -3,6 +3,7 @@ using UnityEngine.Rendering;
 
 public class Weapon : MonoBehaviour
 {
+    public int damageBonusOnUpgradePerMissile;
     public int price;
     public int upgradePrice;
     public float flySpeed;
@@ -77,8 +78,8 @@ public class Weapon : MonoBehaviour
         return reloadTime;
     }
 
-    public void upgradeWeapon()
+    public void upgradeWeapon(int bonus)
     {
-        projectilePrefab.GetComponent<MissileDamage>().upgradeDamage(5);
+        projectilePrefab.GetComponent<MissileDamage>().upgradeDamage(bonus);
     }
 }

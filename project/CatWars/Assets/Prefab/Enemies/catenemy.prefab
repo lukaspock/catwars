@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldOnDeath: 10
+  player: {fileID: 0}
   damage: 5
   attackSpeed: 1
   meleeTimer: 0
@@ -272,4 +273,3 @@ MonoBehaviour:
   isAttacking: 0
   maxHP: 15
   weapon: {fileID: 0}
-  dead: 0

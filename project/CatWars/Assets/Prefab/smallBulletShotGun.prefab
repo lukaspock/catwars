@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 543d018d9edf549939480c606da22606, type: 3}
       propertyPath: m_Name
-      value: smallBullet 1
+      value: smallBulletShotGun
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 543d018d9edf549939480c606da22606, type: 3}
       propertyPath: m_Layer
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04845db196d2f949bebaa83a08980ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 3
 --- !u!114 &7930378138672190109
 MonoBehaviour:
   m_ObjectHideFlags: 0

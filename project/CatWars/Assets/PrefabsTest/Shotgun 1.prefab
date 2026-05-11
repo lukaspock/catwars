@@ -46,13 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd244f49e65c2a4e9a909f74ea3ad1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 10
-  upgradePrice: 250
+  damageBonusOnUpgradePerMissile: 1
+  price: 1000
+  upgradePrice: 500
   flySpeed: 60
   missileNumber: 12
   coneAngle: 10
   reloadTime: 1
-  projectilePrefab: {fileID: 4970338806957830231, guid: e4a08d9c7202a4bd08158ce2cbdddd91, type: 3}
+  projectilePrefab: {fileID: 3535571458212366147, guid: 60e54bca552174387a9ee1689fb5fe4b, type: 3}
   waves: 1
   waveSpeed: 1
 --- !u!114 &2252635557819138451
