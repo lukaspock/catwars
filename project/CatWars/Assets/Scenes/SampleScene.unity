@@ -1980,7 +1980,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497862434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1997b549fb1c142ce83db1d9478db291, type: 3}
   m_Name: 
@@ -4368,7 +4368,7 @@ GameObject:
   - component: {fileID: 924728500}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Gamemanager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,7 +4414,7 @@ MonoBehaviour:
   goldText: {fileID: 876046626}
   killCountWaveOver: {fileID: 1575663727}
   killCountGameOver: {fileID: 1659496944}
-  highScoreCounter: {fileID: 0}
+  highScoreCounter: {fileID: 37879532}
 --- !u!4 &924728501
 Transform:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ GameObject:
   - component: {fileID: 1540632020}
   m_Layer: 0
   m_Name: Spawnmanager
-  m_TagString: Untagged
+  m_TagString: Spawnmanager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
