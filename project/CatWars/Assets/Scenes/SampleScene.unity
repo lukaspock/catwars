@@ -2138,7 +2138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
   clampUpAngle: 60
-  clampDownAngle: -20
+  clampDownAngle: -60
 --- !u!1001 &535843940
 PrefabInstance:
   m_ObjectHideFlags: 0
