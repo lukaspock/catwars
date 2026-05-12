@@ -47,6 +47,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform startingPosition;
     public int goldCount = 0;
 
+    public int skillPoints = 0;
+
     void Start()
     {
         for (int i = 0; i < allWeaponPrefabs.Length; i++)
@@ -188,6 +190,33 @@ public class PlayerBehaviour : MonoBehaviour
     public int getKillCount()
     {
         return killCount;
+    }
+
+    public void IncreaseMaxHp(int amount)
+    {
+        if (skillPoints >= 0)
+        {
+            maxHp += amount;
+            skillPoints--;
+        }
+    }
+
+    public void Heal()
+    {
+        if (skillPoints >= 0)
+        {
+            currentHp = maxHp;
+            skillPoints--;
+        }
+    }
+
+    public void IncreaseSpeed(int amount)
+    {
+        if (skillPoints >= 0)
+        {
+            moveSpeed += amount;
+            skillPoints--;
+        }
     }
 
 }

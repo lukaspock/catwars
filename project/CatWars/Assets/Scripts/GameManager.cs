@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
     string path;
     public TMP_Text highScoreCounter;
 
+    public Button increaseHpButton;
+    public Button increaseSpeedButton;
+    public Button healButton;
+    public TMP_Text skillPointText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -56,6 +61,7 @@ public class GameManager : MonoBehaviour
     {
         if (spawnmanger.waveComplete)
         {
+            playerBehaviour.skillPoints++;
             disableUI();
             killCountWaveOver.text = "Kill Count: " + playerBehaviour.getKillCount().ToString();
             waveCompleteMenu.SetActive(true);
@@ -111,6 +117,27 @@ public class GameManager : MonoBehaviour
                 sniperButton.interactable = true;
                 sniperButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Sniper); updateGoldUI(playerBehaviour.goldCount); });
             }
+
+            if (playerBehaviour.skillPoints >= 0)
+            {
+                increaseHpButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.IncreaseMaxHp(10);
+                    updateSkillPointUI();
+                });
+
+                increaseSpeedButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.IncreaseSpeed(1);
+                    updateSkillPointUI();
+                });
+
+                healButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.Heal();
+                    updateSkillPointUI();
+                });
+            }
         }
     }
 
@@ -128,7 +155,6 @@ public class GameManager : MonoBehaviour
         PlayerUI.SetActive(true);
         lockCursor(true);
         spawnmanger.continueWaves();
-
     }
 
     //disables all gamobjects, saves highscore and resets scene
@@ -221,6 +247,11 @@ public class GameManager : MonoBehaviour
         goldText.text = "Gold: " + gold;
     }
 
+    public void updateSkillPointUI()
+    {
+        skillPointText.text = "Skill Points: " + playerBehaviour.skillPoints;
+    }
+
     // save the score to the score file to the path from the start
     public void saveScore(int score)
     {
@@ -250,7 +281,5 @@ public class GameManager : MonoBehaviour
 
         return highest;
     }
-
-
 
 }
