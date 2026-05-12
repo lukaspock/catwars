@@ -67,7 +67,7 @@ public class Weapon : MonoBehaviour
         {
             float fireAngle = startAngle + (missileAngle * i);
             Vector3 spawnPos = transform.position + transform.forward * 1f + Vector3.up;
-            Quaternion rotation = Quaternion.Euler(0, fireAngle + transform.eulerAngles.y, transform.eulerAngles.z);
+            Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, fireAngle + transform.eulerAngles.y, transform.eulerAngles.z);
             GameObject projectile = Instantiate(projectilePrefab, spawnPos, rotation);
             projectile.GetComponent<MoveForward>().speed = flySpeed;
         }

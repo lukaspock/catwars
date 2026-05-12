@@ -9,7 +9,7 @@ public class Spawnmanager : MonoBehaviour
     public float spawnInterval = 1f;
     public float spawnCounter = 0;
     public float noe = 0;
-    public float startNoe = 1;
+    public float startNoe = 10;
     public int waveCounter = 1;
     public bool waveComplete = false;
     public GameObject[] spawnPoints;
