@@ -8,9 +8,9 @@ public enum WeaponType
 {
     Gun,
     Shotgun,
-    //Sniper,
+    Sniper,
     MachineGun,
-    //RocketLauner
+    RocketLauner,
 }
 
 [System.Serializable]
@@ -104,12 +104,20 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void SwitchWeapon(WeaponType weaponType)
     {
-        if (weaponsDic.ContainsKey(weaponType))
-        {
+        Debug.Log("GUN SWITCH" + weaponType);
+        if (!weaponsDic.ContainsKey(weaponType)) return;
+
+        Weapon prefab = weaponsDic[weaponType].prefab;
+        Debug.Log(prefab.name);
+
+        if (goldCount < prefab.price) return;
+
+        if (weapon != null)
             Destroy(weapon.gameObject);
-            weapon = Instantiate(weaponsDic[weaponType].prefab, startingPosition.position, startingPosition.rotation, startingPosition);
-            this.weaponType = weaponType;
-        }
+
+        weapon = Instantiate(prefab, startingPosition.position, startingPosition.rotation, startingPosition);
+        this.weaponType = weaponType;
+        goldCount -= prefab.price;
     }
 
     void FixedUpdate()
@@ -168,32 +176,6 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log($"Upgrading weapon: {weapon.name}");
             weapon.upgradeWeapon(weapon.damageBonusOnUpgradePerMissile);
             goldCount -= weapon.upgradePrice;
-        }
-    }
-
-    public void switchToShotgun()
-    {
-        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
-        Debug.Log("Switch WEAPON CALLED");
-
-        if (goldCount >= weapon.price)
-        {
-            Debug.Log($"Switching to shotgun: {weapon.name}");
-            SwitchWeapon(WeaponType.Shotgun);
-            goldCount -= weapon.price;
-        }
-    }
-
-    public void switchToPistol()
-    {
-        Weapon weapon = weaponsDic[WeaponType.Gun].prefab;
-        Debug.Log("Switch WEAPON CALLED");
-
-        if (goldCount >= weapon.price)
-        {
-            Debug.Log($"Switching to pistol: {weapon.name}");
-            SwitchWeapon(WeaponType.Gun);
-            goldCount -= weapon.price;
         }
     }
 

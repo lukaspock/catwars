@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Button sniperButton;
     public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
     public Button startButton;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
                 int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.price;
                 shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Shotgun ({price}g)";
                 shotgunButton.interactable = playerBehaviour.goldCount >= price;
-                shotgunButton.onClick.AddListener(() => { playerBehaviour.switchToShotgun(); updateGoldUI(playerBehaviour.goldCount); });
+                shotgunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Shotgun); updateGoldUI(playerBehaviour.goldCount); });
             }
 
             if (weaponType == WeaponType.Gun)
@@ -93,7 +94,22 @@ public class GameManager : MonoBehaviour
             {
                 gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
                 gunButton.interactable = true;
-                gunButton.onClick.AddListener(() => { playerBehaviour.switchToPistol(); updateGoldUI(playerBehaviour.goldCount); });
+                gunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Gun); updateGoldUI(playerBehaviour.goldCount); });
+            }
+
+            if (weaponType == WeaponType.Sniper)
+            {
+                int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.upgradePrice;
+                gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
+                gunButton.interactable = playerBehaviour.goldCount >= price;
+                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
+            }
+            else
+            {
+                int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.price;
+                sniperButton.GetComponentInChildren<TMP_Text>().text = $"Sniper ({price}g)";
+                sniperButton.interactable = true;
+                sniperButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Sniper); updateGoldUI(playerBehaviour.goldCount); });
             }
         }
     }
@@ -150,7 +166,7 @@ public class GameManager : MonoBehaviour
     }
 
     // enables or disables all gameobjects (in the list)
-    public void enableAll(bool enable) 
+    public void enableAll(bool enable)
     {
         foreach (var obj in objectsToEnable)
         {
