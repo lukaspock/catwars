@@ -158,10 +158,28 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 **Ziele dieser Woche:**
 *   [x] Next-Wave UI verknüpfen
+*   [x] Weapon Switch implementieren
+*   [x] Weapon Upgrade implementieren
+*   [x] Kill und Wave Counter
+*   [x] Shotgun Fixen
+*   [x] Boss Wave implementieren
+*   [x] Upgrade und Kauf Buttons überarbeitet
 
 
 **Erledigt von Gregor:**
 *   Next-Wave UI verknüpfen
-*   Gamemanager erweitern
+*   Gamemanager erweitert
+*   Boss wave implementieren
+*   Bug-Fix Shotgun
+
+**Erledigt von Lukas:**
+*   Gegner droppen jetzt Gold
+*   Waffen können gekauft werden und auch geupgraded werden
+*   Hintergrund Musik hinzugefügt
+
+**Erledigt von Justin:**
+*   Map Design erweitert
+*   Upgrade Buttons vervollständigt
+*   Spawnpoints erweitert
 
 
