@@ -271,5 +271,5 @@ MonoBehaviour:
   meleeTimer: 0
   weaponTimer: 0
   isAttacking: 0
-  maxHP: 15
+  maxHP: 30
   weapon: {fileID: 0}

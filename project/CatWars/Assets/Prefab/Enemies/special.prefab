@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecd26fd17783f04c8dbb6aa206fb07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 11
 --- !u!114 &8911731907486966275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   meleeTimer: 0
   weaponTimer: 0
   isAttacking: 0
-  maxHP: 30
+  maxHP: 60
   weapon: {fileID: 0}
 --- !u!114 &7310057221538070448
 MonoBehaviour:
