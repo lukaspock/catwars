@@ -194,16 +194,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void IncreaseMaxHp(int amount)
     {
-        if (skillPoints >= 0)
+        if (skillPoints > 0)
         {
             maxHp += amount;
             skillPoints--;
+            currentHp += amount;
         }
     }
 
     public void Heal()
     {
-        if (skillPoints >= 0)
+        if (skillPoints > 0)
         {
             currentHp = maxHp;
             skillPoints--;
@@ -212,7 +213,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void IncreaseSpeed(int amount)
     {
-        if (skillPoints >= 0)
+        if (skillPoints > 0)
         {
             moveSpeed += amount;
             skillPoints--;

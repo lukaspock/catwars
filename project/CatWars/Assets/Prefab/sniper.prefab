@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageBonusOnUpgradePerMissile: 10
-  price: 10
+  price: 500
   upgradePrice: 500
   flySpeed: 120
   missileNumber: 1
@@ -115,4 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
-  clampAngle: 60
+  clampUpAngle: 60
+  clampDownAngle: -60

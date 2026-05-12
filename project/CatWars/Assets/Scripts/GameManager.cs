@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
     public Button increaseHpButton;
     public Button increaseSpeedButton;
     public Button healButton;
-    public TMP_Text skillPointText;
+
+
+    public GameObject playerUpgradeUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,13 +57,49 @@ public class GameManager : MonoBehaviour
         returnButton.onClick.AddListener(Restart);
         gameOverRestartButton.onClick.AddListener(Restart);
 
+        increaseHpButton.onClick.AddListener(() =>
+        {
+            playerBehaviour.IncreaseMaxHp(10);
+            spawnmanger.shopActive = false;
+            spawnmanger.waveComplete = true;
+            UpdateHealthUI(playerBehaviour.currentHp, playerBehaviour.maxHp);
+
+        });
+
+        increaseSpeedButton.onClick.AddListener(() =>
+        {
+            playerBehaviour.IncreaseSpeed(1);
+            spawnmanger.shopActive = false;
+            spawnmanger.waveComplete = true;
+
+        });
+
+        healButton.onClick.AddListener(() =>
+        {
+            playerBehaviour.Heal();
+            spawnmanger.shopActive = false;
+            spawnmanger.waveComplete = true;
+            UpdateHealthUI(playerBehaviour.currentHp, playerBehaviour.maxHp);
+        });
+
+        // Weapon Buttons
+
+
+
+
     }
 
     void Update()
     {
+        if (spawnmanger.shopActive)
+        {
+            lockCursor(false);
+            disableUI();
+            playerUpgradeUI.SetActive(true);
+            enableAll(false);
+        }
         if (spawnmanger.waveComplete)
         {
-            playerBehaviour.skillPoints++;
             disableUI();
             killCountWaveOver.text = "Kill Count: " + playerBehaviour.getKillCount().ToString();
             waveCompleteMenu.SetActive(true);
@@ -74,12 +112,17 @@ public class GameManager : MonoBehaviour
             shotgunButton.onClick.RemoveAllListeners();
             gunButton.onClick.RemoveAllListeners();
 
+
             if (weaponType == WeaponType.Shotgun)
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.upgradePrice;
                 shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
                 shotgunButton.interactable = playerBehaviour.goldCount >= price;
-                shotgunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
+                shotgunButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.upgradeWeapon();
+                    updateGoldUI(playerBehaviour.goldCount);
+                });
             }
             else
             {
@@ -108,34 +151,21 @@ public class GameManager : MonoBehaviour
                 int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.upgradePrice;
                 gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
                 gunButton.interactable = playerBehaviour.goldCount >= price;
-                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
+                gunButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.upgradeWeapon();
+                    updateGoldUI(playerBehaviour.goldCount);
+                });
             }
             else
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.price;
                 sniperButton.GetComponentInChildren<TMP_Text>().text = $"Sniper ({price}g)";
-                sniperButton.interactable = true;
-                sniperButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Sniper); updateGoldUI(playerBehaviour.goldCount); });
-            }
-
-            if (playerBehaviour.skillPoints >= 0)
-            {
-                increaseHpButton.onClick.AddListener(() =>
+                sniperButton.interactable = playerBehaviour.goldCount >= price;
+                sniperButton.onClick.AddListener(() =>
                 {
-                    playerBehaviour.IncreaseMaxHp(10);
-                    updateSkillPointUI();
-                });
-
-                increaseSpeedButton.onClick.AddListener(() =>
-                {
-                    playerBehaviour.IncreaseSpeed(1);
-                    updateSkillPointUI();
-                });
-
-                healButton.onClick.AddListener(() =>
-                {
-                    playerBehaviour.Heal();
-                    updateSkillPointUI();
+                    playerBehaviour.SwitchWeapon(WeaponType.Sniper);
+                    updateGoldUI(playerBehaviour.goldCount);
                 });
             }
         }
@@ -185,6 +215,7 @@ public class GameManager : MonoBehaviour
     // disables all UI
     public void disableUI()
     {
+        playerUpgradeUI.SetActive(false);
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         waveCompleteMenu.SetActive(false);
@@ -245,11 +276,6 @@ public class GameManager : MonoBehaviour
     public void updateGoldUI(float gold)
     {
         goldText.text = "Gold: " + gold;
-    }
-
-    public void updateSkillPointUI()
-    {
-        skillPointText.text = "Skill Points: " + playerBehaviour.skillPoints;
     }
 
     // save the score to the score file to the path from the start

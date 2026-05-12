@@ -16,6 +16,7 @@ public class Spawnmanager : MonoBehaviour
     public Transform playerSpawn;
     public GameObject bossPrefab;
     private int bossSpawnInterval = 3;
+    public bool shopActive = false;
 
     void Start()
     {
@@ -46,13 +47,14 @@ public class Spawnmanager : MonoBehaviour
         {
             if (waveCounter % bossSpawnInterval == 0)
             {
-                for (int i = 0; i < waveCounter/bossSpawnInterval; i++)
+                for (int i = 0; i < waveCounter / bossSpawnInterval; i++)
                 {
                     Vector3 spawnPoint = getRandomSpawnPoint();
                     Instantiate(bossPrefab, spawnPoint, transform.rotation);
                 }
                 spawnCounter = startNoe;
-            } else
+            }
+            else
             {
                 int enemyIndex = Random.Range(0, enemyPrefabs.Length);
                 //Vector3 spawnPos = new Vector3(Random.Range(-spawnRange, spawnRange), 1, Random.Range(-spawnRange, spawnRange));
@@ -69,7 +71,11 @@ public class Spawnmanager : MonoBehaviour
             Debug.Log("All Enemies Spawned");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                waveComplete = true;
+                // Now After all enemies are defeated, activate Upgrade Screen
+                shopActive = true;
+                //waveComplete = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().skillPoints++;
+
             }
         }
     }

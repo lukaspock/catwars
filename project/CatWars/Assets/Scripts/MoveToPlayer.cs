@@ -13,12 +13,20 @@ public class MoveToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float targetAngle = getRotationToNearestTag("Player");
-        float angle = transform.rotation.eulerAngles.y;
+        try
+        {
+            float targetAngle = getRotationToNearestTag("Player");
+            float angle = transform.rotation.eulerAngles.y;
 
-        transform.Rotate(0f, targetAngle-angle+180, 0f);
-        //Debug.Log(angle);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Rotate(0f, targetAngle - angle + 180, 0f);
+            //Debug.Log(angle);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        catch
+        {
+            Debug.Log("ERROR MOVE TO PLAYER");
+        }
+
     }
 
 
@@ -47,7 +55,7 @@ public class MoveToPlayer : MonoBehaviour
     {
         float a = xdist;
         float b = zdist;
-        float c = a*a + b*b;
+        float c = a * a + b * b;
         float angle = Mathf.Atan2(a, b) * Mathf.Rad2Deg;
         return angle;
     }
