@@ -115,5 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
-  clampUpAngle: 20
-  clampDownAngle: -20
+  clampUpAngle: -20
+  clampDownAngle: 60

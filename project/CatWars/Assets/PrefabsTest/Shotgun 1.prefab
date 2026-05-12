@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 0.6666667
-  clampUpAngle: 20
-  clampDownAngle: -20
+  mouseSensitivity: 1
+  clampUpAngle: -20
+  clampDownAngle: 60
 --- !u!1001 &3961434993631183716
 PrefabInstance:
   m_ObjectHideFlags: 0
