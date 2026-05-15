@@ -82,10 +82,6 @@ public class GameManager : MonoBehaviour
             UpdateHealthUI(playerBehaviour.currentHp, playerBehaviour.maxHp);
         });
 
-        // Weapon Buttons
-
-
-
 
     }
 

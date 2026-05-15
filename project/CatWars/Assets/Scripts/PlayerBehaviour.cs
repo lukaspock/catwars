@@ -23,6 +23,9 @@ public class WeaponPrefabs
 
 public class PlayerBehaviour : MonoBehaviour
 {
+
+    public int armor = 0;
+
     public float moveSpeed = 10f, rotateSpeed = 75f;
     private float hInput, vInput;
     private Rigidbody _rb;
@@ -149,7 +152,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameObject manager = GameObject.Find("GameManager");
         AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
-        this.currentHp -= damage;
+        this.currentHp -= (damage - armor);
         manager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
         if (currentHp <= 0)
         {
@@ -219,5 +222,6 @@ public class PlayerBehaviour : MonoBehaviour
             skillPoints--;
         }
     }
+
 
 }
