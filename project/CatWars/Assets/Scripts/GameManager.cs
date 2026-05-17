@@ -1,6 +1,6 @@
+
 using System.IO;
 using TMPro;
-using UnityEngine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
     public Button increaseSpeedButton;
     public Button healButton;
 
-    public bool helpActive = false;
-    public bool mainMenuActive = true;
+    private bool helpActive = false;
+    private bool mainMenuActive = true;
+    private bool gamePaused = false;
 
 
     public GameObject playerUpgradeUI;
@@ -97,6 +98,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            togglePause();
+        }
+
+        if (gamePaused)
+        {
+
+        }
         if (helpActive)
         {
             disableUI();
@@ -182,6 +192,7 @@ public class GameManager : MonoBehaviour
                 });
             }
 
+
             if (weaponType == WeaponType.RocketLauncher)
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.upgradePrice;
@@ -198,10 +209,16 @@ public class GameManager : MonoBehaviour
                 int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.price;
                 rocketLauncherButton.GetComponentInChildren<TMP_Text>().text = $"RocketLauncher ({price}g)";
                 rocketLauncherButton.interactable = playerBehaviour.goldCount >= price;
-                rocketLauncherButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.RocketLauncher); updateGoldUI(playerBehaviour.goldCount); });
+                rocketLauncherButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.SwitchWeapon(WeaponType.RocketLauncher);
+                    updateGoldUI(playerBehaviour.goldCount);
+                });
             }
+
         }
     }
+
 
     public void StartNextWave()
     {
@@ -362,6 +379,22 @@ public class GameManager : MonoBehaviour
         enableAll(false);
         startMenu.SetActive(true);
         helpActive = false;
+    }
+
+    public void togglePause()
+    {
+        gamePaused = !gamePaused;
+        lockCursor(gamePaused);
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1; // Resume
+                                // pauseMenuUI.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0; // Freeze
+                                // pauseMenuUI.SetActive(true);
+        }
     }
 
 }

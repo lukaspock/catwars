@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using System;
 
+
 public enum WeaponType
 {
     Gun,
     Shotgun,
     Sniper,
-    MachineGun,
     RocketLauncher,
+    MachineGun,
+
 }
 
 [System.Serializable]
@@ -142,7 +144,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Landed");
             isOnGround = true;
         }
 
@@ -163,7 +164,6 @@ public class PlayerBehaviour : MonoBehaviour
     public void AddGold(int amount)
     {
         goldCount += amount;
-        Debug.Log($"Added {amount} gold. Total: {goldCount}");
     }
 
     public void decreaseGold(int amount)
@@ -174,7 +174,6 @@ public class PlayerBehaviour : MonoBehaviour
     public void upgradeWeapon()
     {
         Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
-        Debug.Log("UPGRADE WEAPON CALLED");
 
         if (goldCount >= weapon.upgradePrice)
         {
@@ -187,7 +186,6 @@ public class PlayerBehaviour : MonoBehaviour
     public void AddKillCount()
     {
         killCount++;
-        Debug.Log($"Kill count: {killCount}");
     }
 
     public int getKillCount()
