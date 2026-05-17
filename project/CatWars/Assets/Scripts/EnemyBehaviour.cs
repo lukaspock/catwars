@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
     public PlayerBehaviour player;
     public float damage = 1;
     public float attackSpeed = 1;
-    private float currentHp;
+    public float currentHp;
     public float meleeTimer = 0;
     public float weaponTimer = 0;
     public bool isAttacking = false;
@@ -78,19 +78,6 @@ public class EnemyBehaviour : MonoBehaviour
 
         AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
 
-        // when enemy dies, add gold and rise kill count
-        if (currentHp <= 0)
-        {
-            if (!dead)
-            {
-                dead = true;
-                AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
-                Destroy(gameObject);
-                player.AddGold(goldOnDeath);
-                player.AddKillCount();
-            }
-
-        }
     }
 
     public void ChangeColor(Color color)
@@ -106,6 +93,18 @@ public class EnemyBehaviour : MonoBehaviour
     public void takeDamage(float damage)
     {
         currentHp -= damage;
+        if (currentHp <= 0)
+        {
+            if (!dead)
+            {
+                dead = true;
+                AudioManager.Instance.Play(AudioManager.SoundType.EnemyDeath, gameObject.transform.position);
+                Destroy(gameObject);
+                player.AddGold(goldOnDeath);
+                player.AddKillCount();
+            }
+
+        }
     }
 
     public float getDamage()

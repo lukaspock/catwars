@@ -465,8 +465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
-  clampUpAngle: 60
-  clampDownAngle: -60
+  clampUpAngle: -20
+  clampDownAngle: 60
 --- !u!114 &1732224886768719491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageBonusOnUpgradePerMissile: 10
-  price: 3000
+  price: 10
   upgradePrice: 1000
   flySpeed: 50
   missileNumber: 1
