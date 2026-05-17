@@ -14,7 +14,7 @@ public class Spawnmanager : MonoBehaviour
     public GameObject[] spawnPoints;
     public Transform playerSpawn;
     public GameObject bossPrefab;
-    private int bossSpawnInterval = 3;
+    private int bossSpawnInterval = 5;
     private bool shopActive = false;
 
     void Start()
