@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject helpUi;
     public Button sniperButton;
     public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour
     public Button increaseSpeedButton;
     public Button healButton;
 
+    public bool helpActive = false;
+    public bool mainMenuActive = true;
+
 
     public GameObject playerUpgradeUI;
 
@@ -56,6 +60,9 @@ public class GameManager : MonoBehaviour
         nextWaveButton.onClick.AddListener(StartNextWave);
         returnButton.onClick.AddListener(Restart);
         gameOverRestartButton.onClick.AddListener(Restart);
+
+        mainMenuActive = true;
+        helpActive = false;
 
         increaseHpButton.onClick.AddListener(() =>
         {
@@ -87,6 +94,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (helpActive)
+        {
+            disableUI();
+            enableAll(false);
+            helpUi.SetActive(true);
+            lockCursor(false);
+        }
         if (spawnmanger.shopActive)
         {
             lockCursor(false);
@@ -216,6 +230,7 @@ public class GameManager : MonoBehaviour
         gameOverMenu.SetActive(false);
         waveCompleteMenu.SetActive(false);
         PlayerUI.SetActive(false);
+        helpUi.SetActive(false);
     }
 
     // enables or disables all gameobjects (in the list)
@@ -302,6 +317,29 @@ public class GameManager : MonoBehaviour
         }
 
         return highest;
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    public void activateHelpUI()
+    {
+        helpActive = true;
+
+    }
+
+    public void disableHelpUI()
+    {
+        disableUI();
+        enableAll(false);
+        startMenu.SetActive(true);
+        helpActive = false;
     }
 
 }
