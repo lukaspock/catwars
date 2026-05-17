@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
         audioSrc.rolloffMode = AudioRolloffMode.Linear;
 
         audioSrc.Play();
-        Debug.LogWarning($"Sound type {type} played!" + audioSrc);
+        //Debug.LogWarning($"Sound type {type} played!" + audioSrc);
 
         Destroy(soundObj, s.Clip.length);
     }
