@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using System;
+using System.IO;
 
 
 public enum WeaponType
@@ -53,6 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
     public int goldCount = 0;
 
     public int skillPoints = 0;
+    private GameManager gameManager;
 
     void Start()
     {
@@ -64,13 +66,16 @@ public class PlayerBehaviour : MonoBehaviour
         weaponType = WeaponType.Gun;
         weapon = Instantiate(weaponsDic[weaponType].prefab, startingPosition.position, startingPosition.rotation, startingPosition);
 
-        //SwitchWeapon(WeaponType.Gun);
+
+        gameManager = GameObject.FindWithTag("Gamemanager").GetComponent<GameManager>();
 
 
         Application.targetFrameRate = 60;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
         currentHp = maxHp;
+
+
 
         //InvokeRepeating("FireMissile", startDelay, 1/attackSpeed);
     }
@@ -81,32 +86,31 @@ public class PlayerBehaviour : MonoBehaviour
         hInput = Input.GetAxis("Horizontal") * moveSpeed;
         vInput = Input.GetAxis("Vertical") * moveSpeed;
 
-        if ((hInput != 0 || vInput != 0) && soundTimer <= 0)
+        if (!(gameManager.isGamePaused()))
         {
-            soundTimer = 0.4;
-            AudioManager.Instance.Play(AudioManager.SoundType.Step, transform.position);
-        }
-        else if (soundTimer >= 0)
-        {
-            soundTimer -= Time.deltaTime;
-        }
+            if ((hInput != 0 || vInput != 0) && soundTimer <= 0)
+            {
+                soundTimer = 0.4;
+                AudioManager.Instance.Play(AudioManager.SoundType.Step, transform.position);
+            }
+            else if (soundTimer >= 0)
+            {
+                soundTimer -= Time.deltaTime;
+            }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            Jump();
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+            {
+                Jump();
+            }
+
+            if (Input.GetMouseButtonDown(0) && timer <= 0)
+            {
+                weapon.shoot();
+                timer = weapon.getReload();
+            }
         }
 
-        if (Input.GetMouseButtonDown(0) && timer <= 0)
-        {
-            weapon.shoot();
-            timer = weapon.getReload();
-        }
-
-        if (timer >= 0)
-        {
-            //Debug.Log(Mathf.Round(timer*100)/100);
-        }
     }
 
     public void SwitchWeapon(WeaponType weaponType)
@@ -151,13 +155,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        GameObject manager = GameObject.Find("GameManager");
         AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
         this.currentHp -= (damage - armor);
-        manager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
+        gameManager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
         if (currentHp <= 0)
         {
-            manager.GetComponent<GameManager>().GameOver();
+            gameManager.GetComponent<GameManager>().GameOver();
         }
     }
 

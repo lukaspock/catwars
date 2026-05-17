@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
     public GameObject helpUi;
     public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
     public Button gunButton;
     public Button sniperButton;
     public Button rocketLauncherButton;
+
+    public Button returnInPauseMenuButton;
+    public Button resumeInPauseMenuButton;
+    public Button exitButtonInPauseMenu;
+
 
     private WeaponType weaponType;
     public TMP_Text playerHP;
@@ -65,6 +71,24 @@ public class GameManager : MonoBehaviour
         returnButton.onClick.AddListener(Restart);
         gameOverRestartButton.onClick.AddListener(Restart);
 
+        returnInPauseMenuButton.onClick.AddListener(() =>
+        {
+            togglePause();
+            Restart();
+
+        });
+        resumeInPauseMenuButton.onClick.AddListener(() =>
+        {
+            enableAll(true);
+            disableUI();
+            PlayerUI.SetActive(true);
+            togglePause();
+            lockCursor(true);
+            spawnmanger.startWave();
+        });
+        exitButtonInPauseMenu.onClick.AddListener(QuitGame);
+
+
         mainMenuActive = true;
         helpActive = false;
 
@@ -98,15 +122,22 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!spawnmanger.waveComplete && Input.GetKeyDown(KeyCode.Escape))
         {
-            togglePause();
+            if (!gamePaused)
+            {
+                togglePause();
+                pauseMenuUI.SetActive(true);
+                lockCursor(false);
+            }
         }
 
         if (gamePaused)
         {
-
+            lockCursor(false);
+            pauseMenuUI.SetActive(true);
         }
+
         if (helpActive)
         {
             disableUI();
@@ -244,7 +275,6 @@ public class GameManager : MonoBehaviour
         saveScore(playerBehaviour.getKillCount());
         highScoreCounter.text = "HighScore: " + GetHighscore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
 
@@ -270,6 +300,7 @@ public class GameManager : MonoBehaviour
         waveCompleteMenu.SetActive(false);
         PlayerUI.SetActive(false);
         helpUi.SetActive(false);
+        pauseMenuUI.SetActive(false);
     }
 
     // enables or disables all gameobjects (in the list)
@@ -387,14 +418,17 @@ public class GameManager : MonoBehaviour
         lockCursor(gamePaused);
         if (Time.timeScale == 0)
         {
-            Time.timeScale = 1; // Resume
-                                // pauseMenuUI.SetActive(false);
+            Time.timeScale = 1;
         }
         else
         {
-            Time.timeScale = 0; // Freeze
-                                // pauseMenuUI.SetActive(true);
+            Time.timeScale = 0;
         }
+    }
+
+    public bool isGamePaused()
+    {
+        return gamePaused;
     }
 
 }

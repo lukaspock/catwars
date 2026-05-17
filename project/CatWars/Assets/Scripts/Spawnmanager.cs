@@ -43,6 +43,8 @@ public class Spawnmanager : MonoBehaviour
 
     void SpawnRandomEnemy()
     {
+        if (Time.timeScale == 0) return;
+
         if (spawnCounter < startNoe)
         {
             if (waveCounter % bossSpawnInterval == 0)

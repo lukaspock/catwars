@@ -10,15 +10,22 @@ public class RotateWithMouse : MonoBehaviour
     public float modelYOffset = 0f;
 
     private float currentXRotation = 0f;
+    private GameManager gameManager;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        gameManager = GameObject.FindWithTag("Gamemanager").GetComponent<GameManager>();
     }
 
     void Update()
     {
+        if (gameManager.isGamePaused())
+        {
+            return;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * sensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
