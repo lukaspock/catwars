@@ -3,13 +3,13 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public int goldOnDeath;
-    public PlayerBehaviour player;
+    private PlayerBehaviour player;
     public float damage = 1;
     public float attackSpeed = 1;
-    public float currentHp;
-    public float meleeTimer = 0;
-    public float weaponTimer = 0;
-    public bool isAttacking = false;
+    private float currentHp;
+    private float meleeTimer = 0;
+    private float weaponTimer = 0;
+    private bool isAttacking = false;
     public float maxHP = 1;
     public Weapon weapon = null;
     private bool dead = false;

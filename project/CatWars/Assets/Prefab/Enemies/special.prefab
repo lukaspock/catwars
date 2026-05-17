@@ -216,12 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldOnDeath: 30
-  player: {fileID: 0}
   damage: 10
   attackSpeed: 1
-  meleeTimer: 0
-  weaponTimer: 0
-  isAttacking: 0
   maxHP: 60
   weapon: {fileID: 0}
 --- !u!114 &7310057221538070448
@@ -283,5 +279,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3338852, y: 4.2730365, z: 1}
-  m_Center: {x: 0.0017747879, y: 2.142608, z: 0}
+  m_Size: {x: 1.604239, y: 4.2730365, z: 1}
+  m_Center: {x: 0.030392408, y: 2.142608, z: 0}

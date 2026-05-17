@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExplodeOnImpact : MonoBehaviour
 {
     public float explosionRadius = 10f;
-    public float explosionDamage = 10f;
+    private float explosionDamage = 10f;
     public GameObject particlePrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

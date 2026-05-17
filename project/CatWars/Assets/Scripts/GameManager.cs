@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerUI;
     public Button nextWaveButton;
     public Button returnButton;
-    public Button shopButton;
     public GameObject[] objectsToEnable;
     private Vector3 spawnPosition = new Vector3(597f, 30.5f, 566f);
     GameObject player;
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
     private WeaponType weaponType;
     public TMP_Text playerHP;
     public TMP_Text waveCounter;
-    public bool gameIsOver = false;
+    private bool gameIsOver = false;
     public Button gameOverRestartButton;
     public TMP_Text goldText;
     public TMP_Text killCountWaveOver;
@@ -49,7 +48,6 @@ public class GameManager : MonoBehaviour
     public Button healButton;
 
     private bool helpActive = false;
-    private bool mainMenuActive = true;
     private bool gamePaused = false;
 
 
@@ -89,32 +87,31 @@ public class GameManager : MonoBehaviour
         exitButtonInPauseMenu.onClick.AddListener(QuitGame);
 
 
-        mainMenuActive = true;
         helpActive = false;
 
         increaseHpButton.onClick.AddListener(() =>
         {
             playerBehaviour.IncreaseMaxHp(10);
-            spawnmanger.shopActive = false;
-            spawnmanger.waveComplete = true;
-            UpdateHealthUI(playerBehaviour.currentHp, playerBehaviour.maxHp);
+            spawnmanger.setShopActive(false);
+            spawnmanger.setWaveComplete(true);
+            UpdateHealthUI(playerBehaviour.getCurrentHp(), playerBehaviour.getMaxHp());
 
         });
 
         increaseSpeedButton.onClick.AddListener(() =>
         {
             playerBehaviour.IncreaseSpeed(1);
-            spawnmanger.shopActive = false;
-            spawnmanger.waveComplete = true;
+            spawnmanger.setShopActive(false);
+            spawnmanger.setWaveComplete(true);
 
         });
 
         healButton.onClick.AddListener(() =>
         {
             playerBehaviour.Heal();
-            spawnmanger.shopActive = false;
-            spawnmanger.waveComplete = true;
-            UpdateHealthUI(playerBehaviour.currentHp, playerBehaviour.maxHp);
+            spawnmanger.setShopActive(false);
+            spawnmanger.setWaveComplete(true);
+            UpdateHealthUI(playerBehaviour.getCurrentHp(), playerBehaviour.getMaxHp());
         });
 
 
@@ -122,7 +119,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!spawnmanger.waveComplete && Input.GetKeyDown(KeyCode.Escape))
+        if (!spawnmanger.isWaveComplete() && Input.GetKeyDown(KeyCode.Escape))
         {
             if (!gamePaused)
             {
@@ -145,14 +142,14 @@ public class GameManager : MonoBehaviour
             helpUi.SetActive(true);
             lockCursor(false);
         }
-        if (spawnmanger.shopActive)
+        if (spawnmanger.isShopActive())
         {
             lockCursor(false);
             disableUI();
             playerUpgradeUI.SetActive(true);
             enableAll(false);
         }
-        if (spawnmanger.waveComplete)
+        if (spawnmanger.isWaveComplete())
         {
             disableUI();
             killCountWaveOver.text = "Kill Count: " + playerBehaviour.getKillCount().ToString();
@@ -160,8 +157,8 @@ public class GameManager : MonoBehaviour
             enableAll(false);
             nextWaveButton.gameObject.SetActive(true);
             lockCursor(false);
-            updateGoldUI(playerBehaviour.goldCount);
-            weaponType = playerBehaviour.weaponType;
+            updateGoldUI(playerBehaviour.getGoldCount());
+            weaponType = playerBehaviour.getWeaponType();
 
             shotgunButton.onClick.RemoveAllListeners();
             gunButton.onClick.RemoveAllListeners();
@@ -171,55 +168,55 @@ public class GameManager : MonoBehaviour
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.upgradePrice;
                 shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
-                shotgunButton.interactable = playerBehaviour.goldCount >= price;
+                shotgunButton.interactable = playerBehaviour.getGoldCount() >= price;
                 shotgunButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.upgradeWeapon();
-                    updateGoldUI(playerBehaviour.goldCount);
+                    updateGoldUI(playerBehaviour.getGoldCount());
                 });
             }
             else
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.price;
                 shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Shotgun ({price}g)";
-                shotgunButton.interactable = playerBehaviour.goldCount >= price;
-                shotgunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Shotgun); updateGoldUI(playerBehaviour.goldCount); });
+                shotgunButton.interactable = playerBehaviour.getGoldCount() >= price;
+                shotgunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Shotgun); updateGoldUI(playerBehaviour.getGoldCount()); });
             }
 
             if (weaponType == WeaponType.Gun)
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Gun].prefab.upgradePrice;
                 gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
-                gunButton.interactable = playerBehaviour.goldCount >= price;
-                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.goldCount); });
+                gunButton.interactable = playerBehaviour.getGoldCount() >= price;
+                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.getGoldCount()); });
             }
             else
             {
                 gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
                 gunButton.interactable = true;
-                gunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Gun); updateGoldUI(playerBehaviour.goldCount); });
+                gunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Gun); updateGoldUI(playerBehaviour.getGoldCount()); });
             }
 
             if (weaponType == WeaponType.Sniper)
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.upgradePrice;
                 gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
-                gunButton.interactable = playerBehaviour.goldCount >= price;
+                gunButton.interactable = playerBehaviour.getGoldCount() >= price;
                 gunButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.upgradeWeapon();
-                    updateGoldUI(playerBehaviour.goldCount);
+                    updateGoldUI(playerBehaviour.getGoldCount());
                 });
             }
             else
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.price;
                 sniperButton.GetComponentInChildren<TMP_Text>().text = $"Sniper ({price}g)";
-                sniperButton.interactable = playerBehaviour.goldCount >= price;
+                sniperButton.interactable = playerBehaviour.getGoldCount() >= price;
                 sniperButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.SwitchWeapon(WeaponType.Sniper);
-                    updateGoldUI(playerBehaviour.goldCount);
+                    updateGoldUI(playerBehaviour.getGoldCount());
                 });
             }
 
@@ -228,22 +225,22 @@ public class GameManager : MonoBehaviour
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.upgradePrice;
                 rocketLauncherButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
-                rocketLauncherButton.interactable = playerBehaviour.goldCount >= price;
+                rocketLauncherButton.interactable = playerBehaviour.getGoldCount() >= price;
                 rocketLauncherButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.upgradeWeapon();
-                    updateGoldUI(playerBehaviour.goldCount);
+                    updateGoldUI(playerBehaviour.getGoldCount());
                 });
             }
             else
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.price;
                 rocketLauncherButton.GetComponentInChildren<TMP_Text>().text = $"RocketLauncher ({price}g)";
-                rocketLauncherButton.interactable = playerBehaviour.goldCount >= price;
+                rocketLauncherButton.interactable = playerBehaviour.getGoldCount() >= price;
                 rocketLauncherButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.SwitchWeapon(WeaponType.RocketLauncher);
-                    updateGoldUI(playerBehaviour.goldCount);
+                    updateGoldUI(playerBehaviour.getGoldCount());
                 });
             }
 

@@ -26,34 +26,28 @@ public class WeaponPrefabs
 
 public class PlayerBehaviour : MonoBehaviour
 {
-
-    public int armor = 0;
-
-    public float moveSpeed = 10f, rotateSpeed = 75f;
+    private float moveSpeed = 10f, rotateSpeed = 75f;
     private float hInput, vInput;
     private Rigidbody _rb;
-    public float jumpVelocity = 5f;
-    public bool isOnGround = true;
-    //public GameObject projectilePrefab;
+    private float jumpVelocity = 5f;
+    private bool isOnGround = true;
+
     private float timer;
     private double soundTimer = 0;
 
-    public float maxHp = 100;
-    public float currentHp;
-    //public float attackSpeed = 1f;
-    //private float startDelay = 2f;
-    //
-    public Weapon weapon;
+    private float maxHp = 100;
+    private float currentHp;
+
+    private Weapon weapon;
     private int killCount = 0;
 
     public WeaponPrefabs[] allWeaponPrefabs = new WeaponPrefabs[10];
-    public WeaponType weaponType;
+    private WeaponType weaponType;
     public Dictionary<WeaponType, WeaponPrefabs> weaponsDic = new Dictionary<WeaponType, WeaponPrefabs>();
 
     public Transform startingPosition;
-    public int goldCount = 0;
+    private int goldCount = 0;
 
-    public int skillPoints = 0;
     private GameManager gameManager;
 
     void Start()
@@ -156,7 +150,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void takeDamage(float damage)
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Hurt, transform.position);
-        this.currentHp -= (damage - armor);
+        this.currentHp -= damage;
         gameManager.GetComponent<GameManager>().UpdateHealthUI(currentHp, maxHp);
         if (currentHp <= 0)
         {
@@ -198,30 +192,39 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void IncreaseMaxHp(int amount)
     {
-        if (skillPoints > 0)
-        {
-            maxHp += amount;
-            skillPoints--;
-            currentHp += amount;
-        }
+        maxHp += amount;
+        currentHp += amount;
     }
 
     public void Heal()
     {
-        if (skillPoints > 0)
-        {
-            currentHp = maxHp;
-            skillPoints--;
-        }
+        currentHp = maxHp;
     }
 
     public void IncreaseSpeed(int amount)
     {
-        if (skillPoints > 0)
-        {
-            moveSpeed += amount;
-            skillPoints--;
-        }
+        moveSpeed += amount;
+    }
+
+    public float getCurrentHp()
+    {
+        return currentHp;
+    }
+    public float getMaxHp()
+    {
+        return maxHp;
+    }
+     public int getGoldCount()
+    {
+        return goldCount;
+    }
+     public WeaponType getWeaponType()
+    {
+        return weaponType;
+    }
+     public Weapon getWeapon()
+    {
+        return weapon;
     }
 
 

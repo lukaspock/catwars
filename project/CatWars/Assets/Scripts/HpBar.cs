@@ -13,6 +13,6 @@ public class HpBar : MonoBehaviour
 
     void Update()
     {
-        hpText.text = "Hp: " + player.currentHp;
+        hpText.text = "Hp: " + player.getCurrentHp();
     }
 }

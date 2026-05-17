@@ -6775,7 +6775,6 @@ MonoBehaviour:
   PlayerUI: {fileID: 1529609419}
   nextWaveButton: {fileID: 2109683808}
   returnButton: {fileID: 336242329}
-  shopButton: {fileID: 0}
   objectsToEnable:
   - {fileID: 1540632019}
   - {fileID: 715423778}
@@ -6795,7 +6794,6 @@ MonoBehaviour:
   exitButtonInPauseMenu: {fileID: 480534793}
   playerHP: {fileID: 732688039}
   waveCounter: {fileID: 427796793}
-  gameIsOver: 0
   gameOverRestartButton: {fileID: 908694164}
   goldText: {fileID: 876046626}
   killCountWaveOver: {fileID: 1575663727}
@@ -9498,7 +9496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1447344405
 Transform:
   m_ObjectHideFlags: 0
@@ -10290,11 +10288,7 @@ MonoBehaviour:
   - {fileID: 6671755755216682429, guid: 159688b15ac0e414682ee4276062cb73, type: 3}
   spawnRange: 100
   spawnInterval: 1
-  spawnCounter: 0
-  noe: 0
   startNoe: 2
-  waveCounter: 1
-  waveComplete: 0
   spawnPoints:
   - {fileID: 2075511484}
   - {fileID: 1357375170}
@@ -10328,7 +10322,6 @@ MonoBehaviour:
   - {fileID: 1184575950}
   playerSpawn: {fileID: 715423779}
   bossPrefab: {fileID: 6229277175612323097, guid: 773fbab065cdf456f90bc1feba3d6335, type: 3}
-  shopActive: 0
 --- !u!4 &1540632021
 Transform:
   m_ObjectHideFlags: 0
