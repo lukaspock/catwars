@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageBonusOnUpgradePerMissile: 10
-  price: 10
+  price: 3000
   upgradePrice: 1000
   flySpeed: 50
   missileNumber: 1

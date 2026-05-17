@@ -10,7 +10,7 @@ public enum WeaponType
     Shotgun,
     Sniper,
     MachineGun,
-    RocketLauner,
+    RocketLauncher,
 }
 
 [System.Serializable]

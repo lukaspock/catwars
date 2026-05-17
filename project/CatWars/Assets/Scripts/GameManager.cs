@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject helpUi;
-    public Button sniperButton;
     public PlayerBehaviour playerBehaviour;
     public Spawnmanager spawnmanger;
     public Button startButton;
@@ -22,8 +21,12 @@ public class GameManager : MonoBehaviour
     public GameObject[] objectsToEnable;
     private Vector3 spawnPosition = new Vector3(597f, 30.5f, 566f);
     GameObject player;
+
     public Button shotgunButton;
     public Button gunButton;
+    public Button sniperButton;
+    public Button rocketLauncherButton;
+
     private WeaponType weaponType;
     public TMP_Text playerHP;
     public TMP_Text waveCounter;
@@ -177,6 +180,25 @@ public class GameManager : MonoBehaviour
                     playerBehaviour.SwitchWeapon(WeaponType.Sniper);
                     updateGoldUI(playerBehaviour.goldCount);
                 });
+            }
+
+            if (weaponType == WeaponType.RocketLauncher)
+            {
+                int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.upgradePrice;
+                rocketLauncherButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
+                rocketLauncherButton.interactable = playerBehaviour.goldCount >= price;
+                rocketLauncherButton.onClick.AddListener(() =>
+                {
+                    playerBehaviour.upgradeWeapon();
+                    updateGoldUI(playerBehaviour.goldCount);
+                });
+            }
+            else
+            {
+                int price = playerBehaviour.weaponsDic[WeaponType.RocketLauncher].prefab.price;
+                rocketLauncherButton.GetComponentInChildren<TMP_Text>().text = $"RocketLauncher ({price}g)";
+                rocketLauncherButton.interactable = playerBehaviour.goldCount >= price;
+                rocketLauncherButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.RocketLauncher); updateGoldUI(playerBehaviour.goldCount); });
             }
         }
     }
