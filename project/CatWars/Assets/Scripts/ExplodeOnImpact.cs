@@ -27,6 +27,12 @@ public class ExplodeOnImpact : MonoBehaviour
         GameObject ps = Instantiate(particlePrefab, transform.position, Quaternion.identity);
         Destroy(ps, 3f);
 
+        MissileDamage missileDamage = GetComponent<MissileDamage>();
+
+        if (missileDamage != null) {
+            explosionDamage = missileDamage.getDamage();
+        }
+
         foreach (Collider hit in hits) {
             if (hit.CompareTag("Enemy")) {
                 EnemyBehaviour enemy = hit.GetComponent<EnemyBehaviour>();

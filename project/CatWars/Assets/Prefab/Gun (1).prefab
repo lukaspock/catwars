@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4357802206935208577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.944399
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9444
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.944399
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07202143
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1760006
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.43298346
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      propertyPath: m_Name
+      value: Gun (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -112627762371701548}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 529378638929912115}
+  m_SourcePrefab: {fileID: 100100000, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+--- !u!1 &3511523295717781456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7004dff145d154da096e07f80d614da9, type: 3}
+  m_PrefabInstance: {fileID: 4357802206935208577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-112627762371701548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511523295717781456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c21d65a44f4bb3468181d0f6d08d5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageBonusOnUpgradePerMissile: 5
+  price: 0
+  upgradePrice: 250
+  flySpeed: 60
+  missileNumber: 1
+  coneAngle: 0
+  reloadTime: 0.2
+  projectilePrefab: {fileID: 2125255622564905337, guid: 6cdaadc2304b3469d9e7321a210dabc2, type: 3}
+  waves: 1
+  waveSpeed: 1
+--- !u!114 &529378638929912115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511523295717781456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 1
+  clampUpAngle: -20
+  clampDownAngle: 60
