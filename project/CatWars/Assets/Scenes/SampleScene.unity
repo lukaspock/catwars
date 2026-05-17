@@ -5998,6 +5998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3518063528969432033, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
+      propertyPath: allWeaponPrefabs.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: -7308691842383489725, guid: 0370c9341d8a14e00a334660faaddc6b, type: 3}
     - target: {fileID: 4921094530800917551, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.448
@@ -6634,7 +6638,7 @@ MonoBehaviour:
   spawnInterval: 1
   spawnCounter: 0
   noe: 0
-  startNoe: 10
+  startNoe: 2
   waveCounter: 1
   waveComplete: 0
   spawnPoints:
