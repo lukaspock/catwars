@@ -162,6 +162,8 @@ public class GameManager : MonoBehaviour
 
             shotgunButton.onClick.RemoveAllListeners();
             gunButton.onClick.RemoveAllListeners();
+            sniperButton.onClick.RemoveAllListeners();
+            rocketLauncherButton.onClick.RemoveAllListeners();
 
 
             if (weaponType == WeaponType.Shotgun)
@@ -180,7 +182,10 @@ public class GameManager : MonoBehaviour
                 int price = playerBehaviour.weaponsDic[WeaponType.Shotgun].prefab.price;
                 shotgunButton.GetComponentInChildren<TMP_Text>().text = $"Shotgun ({price}g)";
                 shotgunButton.interactable = playerBehaviour.getGoldCount() >= price;
-                shotgunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Shotgun); updateGoldUI(playerBehaviour.getGoldCount()); });
+                shotgunButton.onClick.AddListener(() => {
+                    playerBehaviour.SwitchWeapon(WeaponType.Shotgun);
+                    updateGoldUI(playerBehaviour.getGoldCount());
+                });
             }
 
             if (weaponType == WeaponType.Gun)
@@ -188,21 +193,29 @@ public class GameManager : MonoBehaviour
                 int price = playerBehaviour.weaponsDic[WeaponType.Gun].prefab.upgradePrice;
                 gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
                 gunButton.interactable = playerBehaviour.getGoldCount() >= price;
-                gunButton.onClick.AddListener(() => { playerBehaviour.upgradeWeapon(); updateGoldUI(playerBehaviour.getGoldCount()); });
+                gunButton.onClick.AddListener(() => {
+                    playerBehaviour.upgradeWeapon();
+                    updateGoldUI(playerBehaviour.getGoldCount());
+
+                });
             }
             else
             {
                 gunButton.GetComponentInChildren<TMP_Text>().text = "Gun (free)";
                 gunButton.interactable = true;
-                gunButton.onClick.AddListener(() => { playerBehaviour.SwitchWeapon(WeaponType.Gun); updateGoldUI(playerBehaviour.getGoldCount()); });
+                gunButton.onClick.AddListener(() => {
+                    playerBehaviour.SwitchWeapon(WeaponType.Gun);
+                    updateGoldUI(playerBehaviour.getGoldCount());
+
+                });
             }
 
             if (weaponType == WeaponType.Sniper)
             {
                 int price = playerBehaviour.weaponsDic[WeaponType.Sniper].prefab.upgradePrice;
-                gunButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
-                gunButton.interactable = playerBehaviour.getGoldCount() >= price;
-                gunButton.onClick.AddListener(() =>
+                sniperButton.GetComponentInChildren<TMP_Text>().text = $"Upgrade ({price}g)";
+                sniperButton.interactable = playerBehaviour.getGoldCount() >= price;
+                sniperButton.onClick.AddListener(() =>
                 {
                     playerBehaviour.upgradeWeapon();
                     updateGoldUI(playerBehaviour.getGoldCount());

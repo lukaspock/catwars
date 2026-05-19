@@ -291,13 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a47f2c70bda4143ba946e865cffb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldOnDeath: 200
-  player: {fileID: 0}
+  goldOnDeath: 500
   damage: 20
   attackSpeed: 1
-  meleeTimer: 0
-  weaponTimer: 0
-  isAttacking: 0
   maxHP: 500
   weapon: {fileID: 0}
 --- !u!114 &918142410758988812
