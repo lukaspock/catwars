@@ -102,6 +102,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3535571458212366147, guid: e26f385d8cc3640fc89523ec32e9fa1b, type: 3}
   waves: 1
   waveSpeed: 1
+  missileType: 2
 --- !u!114 &-5854476147920960981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,11 +110,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764455955931363875}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c49d1794582af84397e0befebcb4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
-  clampUpAngle: 60
-  clampDownAngle: -60
+  clampUpAngle: -20
+  clampDownAngle: 60

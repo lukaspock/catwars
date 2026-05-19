@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviour
     protected float startAngle; // the angle in relation to the player where the first missile spawns
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public MissileType missileType;
+
     void Start()
     {
     }
@@ -80,6 +82,6 @@ public class Weapon : MonoBehaviour
 
     public void upgradeWeapon(int bonus)
     {
-        projectilePrefab.GetComponent<MissileDamage>().upgradeDamage(bonus);
+        MissileDamage.upgradeDamage(missileType, bonus);
     }
 }

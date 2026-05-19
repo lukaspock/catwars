@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  upgradedDamage: 0
+  missileType: 1
 --- !u!114 &664270949381834953
 MonoBehaviour:
   m_ObjectHideFlags: 0

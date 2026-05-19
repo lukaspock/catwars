@@ -489,6 +489,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3535571458212366147, guid: 60e54bca552174387a9ee1689fb5fe4b, type: 3}
   waves: 1
   waveSpeed: 1
+  missileType: 3
 --- !u!1 &4649273504177066157
 GameObject:
   m_ObjectHideFlags: 0

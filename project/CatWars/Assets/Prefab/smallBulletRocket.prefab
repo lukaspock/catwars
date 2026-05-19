@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
+  upgradedDamage: 0
+  missileType: 1
 --- !u!114 &7930378138672190109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 10
-  explosionDamage: 20
   particlePrefab: {fileID: 1772432207425119025, guid: 786fea5430e2e364fb8765830322993c, type: 3}
 --- !u!54 &8615522324607521881
 Rigidbody:
