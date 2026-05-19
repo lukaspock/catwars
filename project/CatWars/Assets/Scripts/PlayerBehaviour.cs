@@ -46,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Dictionary<WeaponType, WeaponPrefabs> weaponsDic = new Dictionary<WeaponType, WeaponPrefabs>();
 
     public Transform startingPosition;
-    private int goldCount = 0;
+    public int goldCount = 0;
 
     private GameManager gameManager;
 
@@ -174,7 +174,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             weapon.upgradeWeapon(weapon.damageBonusOnUpgradePerMissile);
             goldCount -= weapon.upgradePrice;
-
         }
     }
 

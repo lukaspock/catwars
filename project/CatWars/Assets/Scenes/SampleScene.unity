@@ -9322,6 +9322,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3518063528969432033, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
+      propertyPath: goldCount
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518063528969432033, guid: 026d1865bb9044f0b89e3066bea61ebe, type: 3}
       propertyPath: allWeaponPrefabs.Array.size
       value: 4
       objectReference: {fileID: 0}
