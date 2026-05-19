@@ -109,11 +109,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void SwitchWeapon(WeaponType weaponType)
     {
-        Debug.Log("GUN SWITCH" + weaponType);
         if (!weaponsDic.ContainsKey(weaponType)) return;
 
         Weapon prefab = weaponsDic[weaponType].prefab;
-        Debug.Log(prefab.name);
 
         if (goldCount < prefab.price) return;
 
@@ -170,13 +168,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void upgradeWeapon()
     {
-        Weapon weapon = weaponsDic[WeaponType.Shotgun].prefab;
+        Weapon weapon = weaponsDic[weaponType].prefab;
 
         if (goldCount >= weapon.upgradePrice)
         {
-            Debug.Log($"Upgrading weapon: {weapon.name}");
             weapon.upgradeWeapon(weapon.damageBonusOnUpgradePerMissile);
             goldCount -= weapon.upgradePrice;
+
         }
     }
 
