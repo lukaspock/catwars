@@ -25,12 +25,12 @@ Spiel starten -> Erste Welle -> upgrade -> Zweite Welle -> upgrade -> ... -> Gew
 Dies ist der wichtigste Teil. Was MUSS zur Deadline funktionieren? Alles hier Aufgelistete ist notenrelevant. Alles was NICHT hier steht, ist Bonus.
 
 **Die 3 Pflicht-Features (Must-Haves):**
-1. [ ] Wave Based System
-2. [ ] Generieren von Gegnern
-3. [ ] Soundeffekte
+1. [X] Wave Based System
+2. [X] Generieren von Gegnern
+3. [X] Soundeffekte
 
 **Die "Nice-to-Haves" (Nur wenn Zeit bleibt!):**
-*   [ ] verschiedene Waffen und Items
+*   [x] verschiedene Waffen und Items
 *   [ ] verschiedene Start Charaktere
 *   [ ] Shop based System mit Upgrades
 
