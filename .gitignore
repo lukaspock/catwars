@@ -10,7 +10,9 @@
 **/[Tt]emp/
 **/[Oo]bj/
 **/[Bb]uild/
-**/[Bb]uilds/
+project/**/[Bb]uilds/
+builds/**
+!builds/*.zip
 **/[Ll]ogs/
 **/[Uu]ser[Ss]ettings/
 
