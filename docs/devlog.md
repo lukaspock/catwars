@@ -192,7 +192,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 
 
 **Erledigt von Gregor:**
-*   Infinite DMG upgrades fixxen
+*   Rocket Launcher hinzugefügt
 
 **Erledigt von Lukas:**
 *   Pause UI
@@ -200,8 +200,26 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Game builden und testen
 
 **Erledigt von Justin:**
-*   
-*   
-*   
+*   Bugfixed - durchglitchen bei der Map
+
+
+
+## Woche 8 (Datum 19.05.2026)
+
+**Ziele dieser Woche:**
+*   [x] Mehr Gegner hinzufügen
+*   [x] Help Screen erweitern
+*   [x] dmg upgrades fixxen
+
+**Erledigt von Gregor:**
+*   Infinite DMG upgrades fixxen
+
+**Erledigt von Lukas:**
+*   Blauen & Braunen Gegner hinzugefügt
+*   Help Screen erweitert
+
+**Erledigt von Justin:**
+*   Endversion der Map (von GIT gegessen)
+
 
 
