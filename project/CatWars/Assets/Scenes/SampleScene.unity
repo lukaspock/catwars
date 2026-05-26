@@ -11079,10 +11079,10 @@ MonoBehaviour:
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
+  - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   - {fileID: 6671755755216682429, guid: 159688b15ac0e414682ee4276062cb73, type: 3}
   - {fileID: 8411614844767272830, guid: e99ba5deb441e40e899f71ea91b1d8de, type: 3}
   - {fileID: 6090555689787996366, guid: 5c2c02f5f18b341b2bc5c990d77c7758, type: 3}
-  - {fileID: 1310389033249307563, guid: 6fd74cb94812b4def8691ec090dd8094, type: 3}
   spawnRange: 100
   spawnInterval: 1
   startNoe: 2
