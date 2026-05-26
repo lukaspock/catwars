@@ -154,7 +154,7 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Git, Slider bei Hp Leiste
 
 
-## Woche 8 (Datum 05.04.2026)
+## Woche 8 (Datum 05.05.2026)
 
 **Ziele dieser Woche:**
 *   [x] Next-Wave UI verknüpfen
