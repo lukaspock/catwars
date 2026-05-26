@@ -182,4 +182,44 @@ Hier dokumentiert ihr euren Fortschritt. Jeder Schüler muss wöchentlich eintra
 *   Upgrade Buttons vervollständigt
 *   Spawnpoints erweitert
 
+## Woche 8 (Datum 12.05.2026)
+
+**Ziele dieser Woche:**
+*   [x] Pause UI
+*   [x] Help Screen UI
+*   [x] Game builden und testem
+*   [x] Infinite DMG upgrades fixxen
+
+
+**Erledigt von Gregor:**
+*   Rocket Launcher hinzugefügt
+
+**Erledigt von Lukas:**
+*   Pause UI
+*   Help Screen UI
+*   Game builden und testen
+
+**Erledigt von Justin:**
+*   Bugfixed - durchglitchen bei der Map
+
+
+
+## Woche 8 (Datum 19.05.2026)
+
+**Ziele dieser Woche:**
+*   [x] Mehr Gegner hinzufügen
+*   [x] Help Screen erweitern
+*   [x] dmg upgrades fixxen
+
+**Erledigt von Gregor:**
+*   Infinite DMG upgrades fixxen
+
+**Erledigt von Lukas:**
+*   Blauen & Braunen Gegner hinzugefügt
+*   Help Screen erweitert
+
+**Erledigt von Justin:**
+*   Endversion der Map (von GIT gegessen)
+
+
 
