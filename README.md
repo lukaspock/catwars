@@ -30,3 +30,19 @@ zip entpacken, exe ausführen
 - Mapdesign
 -- https://assetstore.unity.com/packages/3d/environments/landscapes/lunar-landscape-3d-132614
 -- https://assetstore.unity.com/packages/3d/poly-planets-34894
+
+![Start Screen](<Screenshot 2026-06-16 at 13.23.30.png>)
+
+![Help Menu](<Screenshot 2026-06-16 at 13.23.34-1.png>)
+
+![Upgrade Screen](<Screenshot 2026-06-16 at 13.24.26.png>)
+
+![Wave Complete Screen](<Screenshot 2026-06-16 at 13.24.31.png>)
+
+![Game Over Screen](<Screenshot 2026-06-16 at 13.25.23.png>)
+
+![Gameplay1](<Screenshot 2026-06-16 at 13.23.43.png>)
+
+![Gameplay2](<Screenshot 2026-06-16 at 13.23.56.png>)
+
+![Gameplay3](<Screenshot 2026-06-16 at 13.24.59.png>)
