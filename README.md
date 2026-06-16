@@ -2,6 +2,8 @@
 
 Welle für Welle. Kein Entkommen. Upgrade deine Waffen im Shop und deinen Charakter nach jeder Welle. Deine Mission: Töte so viele Alien-Katzen wie möglich! Aber pass auf! Es gibt viele verschiedene Arten von bösen Katzten welche dich umbringen wollen!!
 
+[![CatWars Trailer](https://img.youtube.com/vi/RwUqCMrY7TY/maxresdefault.jpg)](https://youtu.be/RwUqCMrY7TY)
+
 # Steuerung
 
 Movement -> WASD oder Pfeiltasten
@@ -30,6 +32,7 @@ zip entpacken, exe ausführen
 - Mapdesign
 -- https://assetstore.unity.com/packages/3d/environments/landscapes/lunar-landscape-3d-132614
 -- https://assetstore.unity.com/packages/3d/poly-planets-34894
+
 
 ![Start Screen](<Screenshot 2026-06-16 at 13.23.30.png>)
 
